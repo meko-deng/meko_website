@@ -1,1 +1,5 @@
-# For personal use - vuejs2 - webpack4
+# Personal Template 
+for Vuejs - Webpack4 - Hotreloading - Semantic UI
+
+Considering:
+Typescript, sass
