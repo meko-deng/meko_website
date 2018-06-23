@@ -10,6 +10,7 @@
   "author": "Meko Deng",
   "license": "ISC",
   "dependencies": {
+    "semantic-ui": "^2.3.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
