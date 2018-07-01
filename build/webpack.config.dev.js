@@ -25,20 +25,6 @@ module.exports = {
         test: /\.js$/,
         use: 'babel-loader'        
       }
-      // {
-      //   test: [
-      //       /\.vue$/, 
-      //       /\.css$/,
-      //       // /\.styl(us)?$/,
-      //       /\.js$/
-      //   ],
-      //   use: [
-      //       'vue-loader',
-      //       'css-loader',
-      //       // 'stylus-loader',
-      //       'babel-loader'
-      //   ]
-      // }
     ]
   },
   plugins: [
