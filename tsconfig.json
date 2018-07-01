@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@output/*":["output/*"],
+    },
+    "target": "es5",
+    "lib": [
+      "es5",
+      "es2015",
+      "dom"
+    ],
+    "sourceMap":true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+  },
+  "include": [
+    "./src/**/*.ts",
+  ],
+  "compileOnSave": false
+}

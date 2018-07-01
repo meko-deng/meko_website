@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "semantic-ui": "^2.3.2",
+    "ts-loader": "^4.4.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },

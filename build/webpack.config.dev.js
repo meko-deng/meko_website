@@ -5,11 +5,22 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
-  entry: [
-    './src/app.js'
-  ],
+  entry: {
+    app: './src/app.ts'
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json', '.ts']
+  },
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules|vue\/src/,
+        loader: "ts-loader",
+        options:{
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
       {
         test: /\.vue$/,
         use: 'vue-loader'
