@@ -13,7 +13,7 @@
     name: 'App',
     data: () => ({ messages: ['Hey John', 'Howdy Paco'] }),    
     components: {
-      HelloComponent
+      HelloComponent, MessageList
     }
   }
 </script>
