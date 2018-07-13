@@ -1,5 +1,2 @@
-# Personal Template 
-for Vuejs - Webpack4 - Hotreloading - Semantic UI
+# Personal Website
 
-Considering:
-Typescript, sass
