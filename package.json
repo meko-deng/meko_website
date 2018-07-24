@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "babel-eslint": "^8.2.6",
+    "buttercms": "^1.1.1",
+    "file-loader": "^1.1.11",
     "semantic-ui": "^2.3.2",
     "ts-loader": "^4.4.2",
     "vue": "^2.5.16",

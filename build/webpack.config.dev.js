@@ -9,7 +9,7 @@ module.exports = {
     app: './src/app.ts'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts']
+    extensions: ['.js', '.vue', '.json', '.ts','.png']
   },
   module: {
     rules: [
@@ -35,7 +35,16 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader'        
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}  
+          }
+        ]
+      }      
     ]
   },
   plugins: [
