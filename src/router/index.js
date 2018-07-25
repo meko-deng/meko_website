@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import WelcomePageComponent from '../components/Welcome_Page_Component.vue'
-import MessageList from '../components/MessageList.vue'
+import Projects from '../components/Projects.vue'
+import Blog from '../components/Blog.vue'
+import Aboutme from '../components/About_me.vue'
+import Resume from '../components/Resume.vue'
 
 Vue.use(Router)
 
@@ -9,13 +11,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Welcome_Page_Componentt',
-      component: WelcomePageComponent
+      name: 'Projects',
+      component: Projects
     },
     {
-      path: '/MessageList',
-      name: 'MessageList',
-      component: MessageList
+      path: '/Blog',
+      name: 'Blog',
+      component: Blog
+    },
+    {
+      path: '/Aboutme',
+      name: 'Aboutme',
+      component: Aboutme
+    },
+    {
+      path: '/Resume',
+      name: 'Resume',
+      component: Resume
     }
   ]
 })
