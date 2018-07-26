@@ -4,7 +4,6 @@ import Projects from '../components/Projects.vue'
 import Blog from '../components/Blog.vue'
 import Aboutme from '../components/About_me.vue'
 import Resume from '../components/Resume.vue'
-import Test from '../components/blog_test.vue'
 import BlogPost from '../components/BlogPost.vue'
 
 Vue.use(Router)
@@ -35,11 +34,6 @@ export default new Router({
       path: '/Resume',
       name: 'Resume',
       component: Resume
-    },
-    {
-      path: '/Test',
-      name: 'Test',
-      component: Test
     }
   ]
 })

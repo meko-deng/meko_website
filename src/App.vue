@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-component></header-component>
-    <router-view></router-view>
+    <router-view class="fadein"></router-view>
   </div>
 </template>
 
