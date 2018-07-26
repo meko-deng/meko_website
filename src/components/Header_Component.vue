@@ -1,15 +1,17 @@
 <template>
-    <div class="container centered">
-        <img src="../assets/shibuff.png">
-        <h1 font>MEKO D.</h1>
-        <h2>developper in progress</h2>
+    <header class="header">
+    <!-- <header class="container centered animation"> -->
+        <div class="img"><img src="../assets/shibuff.png"></div>
+        <div class="h1_name"><h1 font>MEKO D.</h1></div>
+        <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-center'>
-            <a class='nav-link' href='#'><router-link to='/Projects'>PROJECTS</router-link></a>
-            <a class='nav-link' href='#'><router-link to='/Blog'>BLOGS</router-link></a>
-            <a class='nav-link' href='#'><router-link to='/Aboutme'>ABOUT ME</router-link></a>
-            <a class='nav-link' href='#'><router-link to='/Resume'>RESUME</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Projects'>PROJECTS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Blog'>BLOGS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Resume'>RESUME</router-link></a>
         </div>
-    </div>
+        <!-- <button v-on:click="addClass()">Click-me</button> -->
+    </header>
 </template>
 
 <script lang="ts">
@@ -20,28 +22,100 @@ export default Vue.extend({
     data() {
         return{
         }
+    },
+    methods:{
+        addClass(){
+            let header = document.getElementsByClassName('header')[0]
+            let image = document.getElementsByClassName('img')[0]
+            let h1 = document.getElementsByClassName('h1_name')[0]
+            let h2 = document.getElementsByClassName('h2_name')[0]
+            let nav = document.getElementsByClassName('nav')[0]
+            nav.classList.add('navActive')
+            header.classList.add('headerActive')
+            image.classList.add('imgActive')
+            h1.classList.add('h1Active')
+            h2.classList.add('h2Active')
+
+        }
     }
 })
 </script>
 
 <style lang="css" scoped>
-.container {
-    border: 2px solid #2B9DFF;
-    border-radius: 6px;
+.header {
+    height: 93vh;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    /* border: 2px solid #2B9DFF; */
+    border-radius: 6px;
+    transition: all .2s ease-in;
 }
 
-.centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.headerActive {
+    /* position: relative; */
+    animation: move_header_up 3s forwards 0s ease;
+    /* height: 20vh; */
 }
 
-.centered-items {
-    margin-top: calc(100% - 50px)
+img {
+    border-radius: 50%; 
+    display: block;
+    margin: 0 auto;
+    height: 300px;   
+}
+
+.img {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    /* border: 2px solid rgb(255, 43, 43); */
+}
+
+.imgActive {
+    animation: img_animation 3s forwards 0s ease;
+}
+h1 {
+    display: block;
+}
+.h1_name {
+    position: absolute;
+    left: 0;
+    top: calc(20% + 300px);
+    width: 100%;
+    /* border: 2px solid rgb(255, 43, 43); */
+}
+
+.h1Active {
+    animation: h1_animation 3s forwards 1s ease;
+}
+
+.h2_name {
+    position: absolute;
+    left: 0;
+    top: calc(20% + 330px);
+    width: 100%;
+    /* border: 2px solid #2B9DFF;    */
+}
+
+.h2Active {
+    animation: h2_animation 1s forwards 0s ease;
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    top: calc(20% + 370px);  
+    width: 100%;
+    /* border: 2px solid rgb(255, 43, 43);    */
+    text-align: center; 
+}
+
+.navActive {
+    animation: nav_animation 3s forwards 1s ease;
 }
 
 h1, h2{
@@ -68,20 +142,6 @@ h2 {
     src: url('https://fonts.googleapis.com/css?family=Montserrat')    
 }
 
-img {
-    position: relative;
-    vertical-align: middle;
-    display: block;
-    margin: 0 auto;
-    height: 300px;
-    border-radius: 50%;    
-}
-
-.nav-center {
-    margin: 40px;
-    text-align: center;
-}
-
 a {
     text-decoration: none; 
     font-family: Montserrat;
@@ -93,50 +153,56 @@ a:hover {
     color: #707070; 
 }
 
-@keyframes move_up {
-    0% {
-        transform: translate(0,0)
-    }
-    100% {
-        transform: translate(0, calc(100% - 100vh)) scale(0.5)
-    }
+/* ------ KEYFRAMES ------ */
+@keyframes move_header_up {
+    from{height: 93vh}
+    to{
+        height: 30vh;
+        }    
 }
 
-@keyframes moving_up {
-    0% {
-        transform: translateY(0)
-    }
-    100% {
-        transform: translateY(-475%) scale(0.7)
-    }    
+@keyframes img_animation{
+    from{}
+    to{
+        transform: translateY(-35%) scale(0.5);
+        }
 }
 
-@keyframes fade_away {
-    0% {
-        opacity: 1
-    }
-    100% {
-        opacity: 0
-    }
+@keyframes h1_animation{
+    from{}
+    to{
+        top: 130px;
+        transform: translateY(5vh) scale(0.7);
+        }
 }
 
-@keyframes nav_move {
-    0%{
-        /* transform: translateY(0) translateX(0)         */
-    }
-    100% {
-        /* transform: translateY(-500%) translateX(50%)     */
-    }
-}
-.animation img {
-    animation: move_up 3s forwards 0s ease;
+@keyframes h2_animation{
+    from{}
+    to{
+        opacity: 0;
+        }
 }
 
-/* .animation h2 {
-    animation: fade_away 2s forwards 1s ease;
+@keyframes nav_animation{
+    0%{opacity: 1}
+    30%{
+        opacity: 0;
+    }
+    49% {
+        left: 0%
+    }
+    50% {
+        top: 0%;
+        left: calc(100vw - 100%);
+        text-align: right;
+        opacity: 0;
+    }
+    100%{
+        top: 5%;
+        left: calc(100vw - 100%);
+        opacity: 1;
+        transform: translateY(0vh) scale(0.8);
+        text-align: right;
+        }
 }
-
-.animation h1 {
-    animation: moving_up 3s forwards 3s ease;
-} */
 </style>
