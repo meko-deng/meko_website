@@ -4,20 +4,27 @@ import Projects from '../components/Projects.vue'
 import Blog from '../components/Blog.vue'
 import Aboutme from '../components/About_me.vue'
 import Resume from '../components/Resume.vue'
+import Test from '../components/blog_test.vue'
+import BlogPost from '../components/BlogPost.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Projects',
+      path: '/Projects',
+      name: 'projects',
       component: Projects
     },
     {
-      path: '/Blog',
-      name: 'Blog',
+      path: '/blog/',
+      name: 'blog',
       component: Blog
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blog-post',
+      component: BlogPost
     },
     {
       path: '/Aboutme',
@@ -28,6 +35,11 @@ export default new Router({
       path: '/Resume',
       name: 'Resume',
       component: Resume
+    },
+    {
+      path: '/Test',
+      name: 'Test',
+      component: Test
     }
   ]
 })

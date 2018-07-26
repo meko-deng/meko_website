@@ -1,20 +1,30 @@
 <template>
-  <div class = "full-width center-content">
+  <div>
     <header-component></header-component>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang='ts'>
-import HeaderComponent from './components/Header_Component'
+import HeaderComponent from './components/Header_Component.vue'
 
   export default{
-    name: 'App',
+    name: 'app',
     components: {
       HeaderComponent
     }
   }
 </script>
 
-<style>
+<style lang="css">
+html { margin-left: calc(100vw - 100%); }
+/* #app {
+  overflow-y: hidden;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+} */
 </style>

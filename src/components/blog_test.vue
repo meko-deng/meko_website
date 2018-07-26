@@ -12,7 +12,13 @@ export default Vue.extend({
     data() {
         return{
         }
-    }
+    },
+	mounted: function() {
+        butter.post.list({page: 1, page_size: 10}).then(function(response) {
+            console.log(response.data)
+        })
+	}
+
 })
 </script>
 
