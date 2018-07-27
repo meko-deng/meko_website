@@ -21,3 +21,8 @@
   animation: fadeIn 3s forwards 3s ease
   /* transition: all .3s ease; */
 }
+
+@font-face{
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css?family=Montserrat')    
+}

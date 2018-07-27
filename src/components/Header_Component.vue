@@ -137,10 +137,10 @@ h2 {
     font-weight: 400;
 }
 
-@font-face{
+/* @font-face{
     font-family: 'Montserrat';
     src: url('https://fonts.googleapis.com/css?family=Montserrat')    
-}
+} */
 
 a {
     text-decoration: none; 
