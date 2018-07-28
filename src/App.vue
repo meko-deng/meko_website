@@ -1,19 +1,31 @@
 <template>
   <div>
-    <header-component></header-component>
-    <router-view class="fadein"></router-view>
+    <header-component v-on:finishedLoading="set_fadeIn()"></header-component>
+    <router-view :class="{'noshow': true,'fadein': play_fadeIn}"></router-view>
   </div>
 </template>
 
 <script lang='ts'>
+import Vue from 'vue'
 import HeaderComponent from './components/Header_Component.vue'
 
-  export default{
-    name: 'app',
-    components: {
-      HeaderComponent
+export default Vue.extend({
+  name: 'app',
+  data() {
+      return{
+        play_fadeIn: <boolean>false
+      }
+  },
+  methods: {
+    set_fadeIn() {
+      this.play_fadeIn = true
+      console.log('set_fadeIn was called')
     }
+  },   
+  components: {
+    HeaderComponent
   }
+})
 </script>
 
 <style lang="css">

@@ -25,17 +25,32 @@ export default Vue.extend({
     },
     methods:{
         addClass(){
+            //if the active classes haven't been added already
+            if (document.querySelector('.navActive') == null) {
+                this.add_newClasses()
+                this.emit_finished()
+            } else {
+                console.log('classes already exist!')
+            }
+        },
+        add_newClasses() {
             let header = document.getElementsByClassName('header')[0]
             let image = document.getElementsByClassName('img')[0]
             let h1 = document.getElementsByClassName('h1_name')[0]
             let h2 = document.getElementsByClassName('h2_name')[0]
             let nav = document.getElementsByClassName('nav')[0]
+
             nav.classList.add('navActive')
             header.classList.add('headerActive')
             image.classList.add('imgActive')
             h1.classList.add('h1Active')
             h2.classList.add('h2Active')
-
+        },
+        emit_finished() {
+            setTimeout (() => {
+                this.$emit("finishedLoading")
+                console.log('finished_loading')
+            }, 3000)
         }
     }
 })

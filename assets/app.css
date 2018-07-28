@@ -18,8 +18,11 @@
 
 .fadein{
   opacity: 0;
-  animation: fadeIn 3s forwards 3s ease
-  /* transition: all .3s ease; */
+  animation: fadeIn 3s forwards 0s ease
+}
+
+.noshow {
+  opacity: 0
 }
 
 @font-face{
