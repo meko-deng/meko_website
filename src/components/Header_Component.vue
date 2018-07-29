@@ -68,12 +68,6 @@ export default Vue.extend({
     transition: all .2s ease-in;
 }
 
-.headerActive {
-    /* position: relative; */
-    animation: move_header_up 3s forwards 0s ease;
-    /* height: 20vh; */
-}
-
 img {
     border-radius: 50%; 
     display: block;
@@ -89,10 +83,6 @@ img {
     text-align: center;
     /* border: 2px solid rgb(255, 43, 43); */
 }
-
-.imgActive {
-    animation: img_animation 3s forwards 0s ease;
-}
 h1 {
     display: block;
 }
@@ -104,20 +94,12 @@ h1 {
     /* border: 2px solid rgb(255, 43, 43); */
 }
 
-.h1Active {
-    animation: h1_animation 3s forwards 1s ease;
-}
-
 .h2_name {
     position: absolute;
     left: 0;
     top: calc(20% + 330px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
-}
-
-.h2Active {
-    animation: h2_animation 1s forwards 0s ease;
 }
 
 .nav {
@@ -127,10 +109,6 @@ h1 {
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 
-}
-
-.navActive {
-    animation: nav_animation 3s forwards 1s ease;
 }
 
 h1, h2{
@@ -167,7 +145,27 @@ a {
 a:hover {
     color: #707070; 
 }
+.headerActive {
+    /* position: relative; */
+    animation: move_header_up 2.2s forwards 0s ease;
+    /* height: 20vh; */
+}
 
+.imgActive {
+    animation: img_animation 2.2s forwards 0s ease;
+}
+
+.h1Active {
+    animation: h1_animation 2.2s forwards 0.4s ease;
+}
+
+.h2Active {
+    animation: h2_animation 1s forwards 0s ease;
+}
+
+.navActive {
+    animation: nav_animation 2.2s forwards 0.5s ease;
+}
 /* ------ KEYFRAMES ------ */
 @keyframes move_header_up {
     from{height: 93vh}
