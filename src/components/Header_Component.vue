@@ -50,7 +50,7 @@ export default Vue.extend({
             setTimeout (() => {
                 this.$emit("finishedLoading")
                 console.log('finished_loading')
-            }, 3000)
+            }, 2000)
         }
     }
 })

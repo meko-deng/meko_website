@@ -8,6 +8,7 @@
     "test": "npm run unit",
     "dev": "webpack-dev-server --config build/webpack.config.dev.js",
     "build": "webpack --config build/webpack.config.prod.js",
+    "deploy": "git subtree push origin --prefix dist gh-pages",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
 
   },
