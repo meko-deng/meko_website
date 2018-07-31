@@ -1,64 +1,138 @@
 <template>
-<div class="center">
-    <br>
-    <br>
-    <br>
-    <div class="animate">Boom</div>
-    <div class="animate_bitch">Bitch</div>
-</div>
+  <div class="wrapper center">
+        <div class="box"
+        v-for="(post,index) in posts"
+        :key="post.slug + '_' + index"
+        >
+            <router-link :to="'/blog/' + post.slug">
+                <article class="media">
+                <figure class= "image">
+                    <img
+                    v-if="post.featured_image"
+                    :src="post.featured_image"
+                    alt=""
+                    >
+                    <img
+                    v-else
+                    src="http://via.placeholder.com/250x250"
+                    alt=""
+                    >
+                </figure>
+                </article>
+                <h2 class="post_title">{{ post.title }}</h2>
+                <p class="post_summary">{{ post.summary }}</p>                 
+            </router-link>      
+        </div>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Butter from 'buttercms'
+
+export const butter = Butter('3de9eb70ae75166369d82f5404fd6f95476cd46d')
+
 
 export default Vue.extend({
+    name: 'blog-home',    
     data() {
         return{
+            page_title: 'Blog',
+            posts: <any>[]           
         }
+    },
+    methods: {
+      getPosts() {
+        butter.post.list({
+          page: 1,
+          page_size: 10
+        }).then((res) => {
+            let data = res.data.data
+            for (let i =0; i<res.data.data.length; i++){
+                let category = data[i].categories[0].name
+                if (category == 'project'){
+                    this.posts.push(data[i])
+                }
+            }
+        //   this.posts = res.data.data
+          console.log(this.posts)
+        })
+      }
+    },    
+    created() {
+      this.getPosts()
     }
 })
 </script>
 
 <style lang="css" scoped>
+.box {
+    color: #fff;
+    border-radius: 10px;
+    width: 20vw;
+}
+
+.image {
+    margin: 0;
+}
+
+img {
+    border-radius: 10px;
+    width: 20vw;
+    height: 15vw;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-column-gap: 5vw;
+    grid-row-gap: 5vh;
+    justify-items: center;
+}
+
 .center {
-    position: relative;
-    width: 100%;
+    margin: 0;
+    position: absolute;
+    margin-top: calc(250px - 30vh);
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.post_title {
+    color: #fdb027;
     text-align: center;
+    font-family: Montserrat;
 }
 
-@keyframes animate_boom {
-    0%{
-        opacity: 0;
-        transform: scale(1)
-    }
-    20% {
-        opacity: 1;
-        transform: scale(2)
-    }
-    50% {
-        transform: scale(1)
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1
-    }
-}
-.animate {
-    opacity: 0;
-    animation: animate_boom 3s forwards 6s ease
+.post_summary {
+    font-family: Montserrat;
+    text-align: center;
+    font-size: 15px
 }
 
-@keyframes animate_bitch{
-    0%{
-        opacity: 0
-    }
-    100%{
-        opacity: 1
-    }
+a {
+    text-decoration: none;
 }
 
-.animate_bitch{
-    opacity: 0;
-    animation: animate_bitch 2s forwards 8s ease
+@media (max-width: 900px) {
+    .box {
+        color: #fff;
+        border-radius: 10px;
+        width: 30vw;
+    }    
+
+    img {
+        border-radius: 10px;
+        width: 30vw;
+        height: 25vw;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 30vw 30vw;
+        grid-column-gap: 5vw;
+        grid-row-gap: 5vh;
+        justify-items: center;
+    }    
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div id="blog-post" class="fade_in">
-    <h1>{{ post.data.title }}</h1>
-    <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
-    <div v-html="post.data.body"></div>
+  <div id="blog-post" class="fade_in center">
+    <h1 class="montserrat">{{ post.data.title }}</h1>
+    <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
+    <div v-html="post.data.body" class="montserrat"></div>
 
     <router-link
       v-if="post.meta.previous_post"
@@ -55,3 +55,20 @@ export default Vue.extend({
     }
   })
 </script>
+
+<style>
+
+.center {
+    margin: 0;
+    width: 60%;
+    position: absolute;
+    margin-top: calc(250px - 30vh);
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.montserrat {
+  font-family: Montserrat;
+}
+
+</style>
