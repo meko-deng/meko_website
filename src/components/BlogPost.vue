@@ -56,7 +56,7 @@ export default Vue.extend({
   })
 </script>
 
-<style>
+<style lang="css" scoped>
 
 .center {
     margin: 0;
