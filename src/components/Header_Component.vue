@@ -57,6 +57,7 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 .header {
     height: 93vh;
     width: 100%;
@@ -116,7 +117,7 @@ h1, h2{
     margin: 0;
     text-align: center;
     vertical-align: middle;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     color: #707070;
 }
 
@@ -137,7 +138,7 @@ h2 {
 
 a {
     text-decoration: none; 
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     color: #bbbbbb; 
     padding: 5px;
 }
