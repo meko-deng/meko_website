@@ -29,6 +29,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Butter from 'buttercms'
+import FooterComponent from './components/Footer_Component.vue'
 
 export const butter = Butter('3de9eb70ae75166369d82f5404fd6f95476cd46d')
 
@@ -83,11 +84,13 @@ img {
 }
 
 .wrapper {
+    position: relative;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw;
     grid-column-gap: 5vw;
     grid-row-gap: 5vh;
     justify-items: center;
+    /* border: 2px solid #2B9DFF; */
 }
 
 .center {
