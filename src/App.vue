@@ -17,14 +17,17 @@ export default Vue.extend({
       return{
         play_fadeIn: <boolean>false,
         render_footer: <boolean>false,
-        clientHeight: <any>'',
+        // clientHeight: <any>'',
       }
   },
   computed: {
     height_style(): any {
       return {
-        top: `calc(30vh + ${this.clientHeight}px)`,
+        top: `calc(30vh + ${this.clientHeightComputed}px)`,
       }
+    },
+    clientHeightComputed(): any {
+      return (document.getElementsByClassName('router_element')[0].clientHeight)
     }
   },
   methods: {
@@ -35,8 +38,8 @@ export default Vue.extend({
   },
   updated: function () {
     this.render_footer = true;
-    this.clientHeight = document.getElementsByClassName('router_element')[0].clientHeight
-    console.log(this.clientHeight)
+    // this.clientHeight = document.getElementsByClassName('router_element')[0].clientHeight
+    // console.log(this.clientHeight)
   },
   components: {
     HeaderComponent, FooterComponent
