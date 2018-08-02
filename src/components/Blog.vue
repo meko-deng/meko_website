@@ -17,10 +17,10 @@
                     src="http://via.placeholder.com/250x250"
                     alt=""
                     >
-                </figure>
+                    <p class="post_summary">{{ post.summary }}</p>
+                </figure> 
                 </article>
-                <h2 class="post_title">{{ post.title }}</h2>
-                <p class="post_summary">{{ post.summary }}</p>                 
+                <h2 class="post_title">{{ post.title }}</h2>                
             </router-link>      
         </div>
   </div>
@@ -74,13 +74,21 @@ export default Vue.extend({
 }
 
 .image {
+    position: relative;
     margin: 0;
+    opacity: 1;
+    border-radius: 10px;
+    width: 20vw;
+    height: 15vw;
+    background: black;
 }
 
 img {
     border-radius: 10px;
     width: 20vw;
     height: 15vw;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;    
 }
 
 .wrapper {
@@ -108,13 +116,32 @@ img {
 }
 
 .post_summary {
+    position: absolute;
     font-family: Montserrat;
     text-align: center;
-    font-size: 15px
+    font-size: 15px;
+    color: white;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out; 
+}
+
+.image:hover .post_summary {
+    opacity: 1;
 }
 
 a {
     text-decoration: none;
+}
+
+img:hover {
+    opacity: 0.7;
+    /* background-color: black;
+    background-blend-mode: multiply;
+    opacity: 0.5; */
 }
 
 @media (max-width: 900px) {
@@ -122,6 +149,11 @@ a {
         color: #fff;
         border-radius: 10px;
         width: 30vw;
+    }
+
+    .image {
+        width: 30vw;
+        height: 25vw;
     }    
 
     img {
