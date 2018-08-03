@@ -106,7 +106,7 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
-    top: calc(20% + 370px);  
+    top: calc(20% + 390px);  
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 

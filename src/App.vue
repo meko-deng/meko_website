@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-component v-on:finishedLoading="set_fadeIn()"></header-component>
+    <header-component class="header_component_class" v-on:finishedLoading="set_fadeIn()"></header-component>
     <router-view :class="{'noshow': true,'fadein': play_fadeIn, 'router_element': true}"></router-view>
     <footer-component :style="height_style" class="footer_element" v-if="play_fadeIn"></footer-component>
   </div>
@@ -17,29 +17,38 @@ export default Vue.extend({
       return{
         play_fadeIn: <boolean>false,
         render_footer: <boolean>false,
-        // clientHeight: <any>'',
+        clientHeightComputed: <number>0,
+        router_height: <number>0,
+        header_height: <number>0,
       }
   },
   computed: {
     height_style(): any {
       return {
-        top: `calc(30vh + ${this.clientHeightComputed}px)`,
+        // top: `calc(50vh + ${this.clientHeightComputed}px)`,
+        top:`calc(${this.header_height}px + ${this.router_height}px + 20vh)`
       }
-    },
-    clientHeightComputed(): any {
-      return (document.getElementsByClassName('router_element')[0].clientHeight)
     }
   },
   methods: {
     set_fadeIn() {
       this.play_fadeIn = true
       console.log('set_fadeIn was called')
+    },
+    get_clientHeight() {
+      this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
+      this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+      console.log(`height style: ${this.height_style['top']}`)
     }
   },
   updated: function () {
     this.render_footer = true;
     // this.clientHeight = document.getElementsByClassName('router_element')[0].clientHeight
     // console.log(this.clientHeight)
+  },
+  created: function() {
+    window.addEventListener('resize',this.get_clientHeight)
+    this.get_clientHeight()
   },
   components: {
     HeaderComponent, FooterComponent
@@ -56,16 +65,5 @@ html { margin-left: calc(100vw - 100%); }
   left: 0;
   bottom: 0;
   height: 100px;
-  /* border: 2px solid rgb(255, 43, 43);    */
 }
-
-/* #app {
-  overflow-y: hidden;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 </style>

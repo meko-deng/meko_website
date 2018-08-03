@@ -6,7 +6,7 @@
         >
             <router-link :to="'/blog/' + post.slug">
                 <article class="media">
-                <figure class= "image">
+                <figure class= "image" :style="figure_background_color_style">
                     <img
                     v-if="post.featured_image"
                     :src="post.featured_image"
@@ -39,7 +39,16 @@ export default Vue.extend({
     data() {
         return{
             page_title: 'Blog',
-            posts: <any>[]           
+            posts: <any>[] ,
+            figure_background_color: <string>'black',
+            doit: <number>0        
+        }
+    },
+    computed: {
+        figure_background_color_style(): any {
+            return {
+                background: this.figure_background_color
+            }
         }
     },
     methods: {
@@ -58,10 +67,16 @@ export default Vue.extend({
         //   this.posts = res.data.data
           console.log(this.posts)
         })
+      },
+      hide_black_background() {
+          this.figure_background_color  = 'white'
+          clearTimeout(this.doit)
+          this.doit = setTimeout(() =>{this.figure_background_color  = 'black'}, 500)
       }
     },    
     created() {
       this.getPosts()
+      window.addEventListener('resize',this.hide_black_background)
     }
 })
 </script>
@@ -80,7 +95,7 @@ export default Vue.extend({
     border-radius: 10px;
     width: 20vw;
     height: 15vw;
-    background: black;
+    /* background: black; */
 }
 
 img {
@@ -129,19 +144,16 @@ img {
 	transition: .3s ease-in-out; 
 }
 
-.image:hover .post_summary {
+.image:hover .post_summary{
     opacity: 1;
+}
+
+.image:hover img {
+    opacity: 0.6
 }
 
 a {
     text-decoration: none;
-}
-
-img:hover {
-    opacity: 0.7;
-    /* background-color: black;
-    background-blend-mode: multiply;
-    opacity: 0.5; */
 }
 
 @media (max-width: 900px) {
