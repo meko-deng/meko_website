@@ -119,7 +119,7 @@ img {
 .center {
     margin: 0;
     position: absolute;
-    margin-top: calc(250px - 30vh);
+    /* margin-top: calc(250px - 30vh); */
     left: 50%;
     transform: translate(-50%);
 }
@@ -181,5 +181,31 @@ a {
         grid-row-gap: 5vh;
         justify-items: center;
     }    
+}
+
+@media (max-width: 600px) {
+    .box {
+        color: #fff;
+        border-radius: 10px;
+        width: 50vw;
+    }
+
+    .image {
+        width: 50vw;
+        height: 40vw;
+    }    
+
+    img {
+        border-radius: 10px;
+        width: 50vw;
+        height: 40vw;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 50vw;
+        grid-row-gap: 5vh;
+        justify-items: center;
+    }        
 }
 </style>

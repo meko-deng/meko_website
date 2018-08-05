@@ -1,6 +1,5 @@
 <template>
     <header class="header">
-    <!-- <header class="container centered animation"> -->
         <div class="img"><img src="../assets/shibuff.png"></div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="h2_name"><h2>developper in progress</h2></div>
@@ -10,13 +9,11 @@
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Resume'>RESUME</router-link></a>
         </div>
-        <!-- <button v-on:click="addClass()">Click-me</button> -->
     </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-// import shibuffplaceholder from '../assets/shibuff.png'
 
 export default Vue.extend({
     data() {
@@ -40,7 +37,11 @@ export default Vue.extend({
             let h2 = document.getElementsByClassName('h2_name')[0]
             let nav = document.getElementsByClassName('nav')[0]
 
-            nav.classList.add('navActive')
+            if (window.innerWidth < 900) {
+                nav.classList.add('navActive_small')
+            } else {
+                nav.classList.add('navActive')
+            }
             header.classList.add('headerActive')
             image.classList.add('imgActive')
             h1.classList.add('h1Active')
@@ -73,7 +74,7 @@ img {
     border-radius: 50%; 
     display: block;
     margin: 0 auto;
-    height: 300px;   
+    height: 35vh;   
 }
 
 .img {
@@ -90,7 +91,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: 0;
-    top: calc(20% + 300px);
+    top: calc(20% + 35vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
@@ -98,7 +99,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: 0;
-    top: calc(20% + 330px);
+    top: calc(20% + 35vh + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
@@ -106,7 +107,7 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
-    top: calc(20% + 390px);  
+    top: calc(20% + 35vh + 70px);  
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 
@@ -167,6 +168,9 @@ a:hover {
 .navActive {
     animation: nav_animation 2.2s forwards 0.5s ease;
 }
+.navActive_small {
+    animation: nav_animation_small 2.2s forwards 0.5s ease;
+}
 /* ------ KEYFRAMES ------ */
 @keyframes move_header_up {
     from{height: 93vh}
@@ -185,7 +189,7 @@ a:hover {
 @keyframes h1_animation{
     from{}
     to{
-        top: 130px;
+        top: 15vh;
         transform: translateY(5vh) scale(0.7);
         }
 }
@@ -218,5 +222,17 @@ a:hover {
         transform: translateY(0vh) scale(0.8);
         text-align: right;
         }
+}
+
+@keyframes nav_animation_small{
+    0%{opacity: 1}
+    100%{
+        /* top: 30vh;
+        left: calc(100vw - 100%); */
+        top: 25vh;
+        opacity: 1;
+        transform: scale(0.8);
+        text-align: center;
+    }
 }
 </style>

@@ -33,12 +33,13 @@ export default Vue.extend({
   methods: {
     set_fadeIn() {
       this.play_fadeIn = true
-      console.log('set_fadeIn was called')
+      this.get_clientHeight()
+      // console.log('set_fadeIn was called')
     },
     get_clientHeight() {
       this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
       this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
-      console.log(`height style: ${this.height_style['top']}`)
+      // console.log(`height style: ${this.height_style['top']}`)
     }
   },
   updated: function () {
@@ -48,7 +49,6 @@ export default Vue.extend({
   },
   created: function() {
     window.addEventListener('resize',this.get_clientHeight)
-    this.get_clientHeight()
   },
   components: {
     HeaderComponent, FooterComponent
