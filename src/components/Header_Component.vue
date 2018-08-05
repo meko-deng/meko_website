@@ -3,10 +3,10 @@
         <div class="img"><img src="../assets/shibuff.png"></div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="logo_links">
-            <a><insta></insta></a>
-            <a><facebook></facebook></a>
-            <a><github></github></a>
-            <a><codepen></codepen></a>
+            <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><insta></insta></a>
+            <!-- <a><facebook></facebook></a> -->
+            <a href="https://github.com/MekoDeng94" target="_blank"><github></github></a>
+            <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-center'>
