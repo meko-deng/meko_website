@@ -1,7 +1,9 @@
 <template>
   <div>
-    <header-component class="header_component_class" v-on:finishedLoading="set_fadeIn()"></header-component>
-    <router-view :class="{'noshow': true,'fadein': play_fadeIn, 'router_element': true}"></router-view>
+    <header-component class="header_component_class" 
+                      v-on:finishedLoading="set_fadeIn()"
+                      v-on:reloadBackToTop="change_clientHeight()"></header-component>
+    <router-view :style="router_height_style" :class="{'noshow': true,'fadein': play_fadeIn, 'router_element': true}"></router-view>
     <footer-component :style="height_style" class="footer_element" v-if="play_fadeIn"></footer-component>
   </div>
 </template>
@@ -28,6 +30,11 @@ export default Vue.extend({
         // top: `calc(50vh + ${this.clientHeightComputed}px)`,
         top:`calc(${this.header_height}px + ${this.router_height}px + 20vh)`
       }
+    },
+    router_height_style(): any {
+      return {
+        top:`calc(${this.header_height}px + 20px)`
+      }
     }
   },
   methods: {
@@ -36,7 +43,15 @@ export default Vue.extend({
       this.get_clientHeight()
       // console.log('set_fadeIn was called')
     },
+    //50 seems like a good time to let component render, then have the back to top set to the bottom..
+    //otherwise back to top would render in the middle of the page
+    change_clientHeight() {
+      setTimeout(() => {
+        this.get_clientHeight()
+      },50)
+    },
     get_clientHeight() {
+      console.log('changing')
       this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
       this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
       // console.log(`height style: ${this.height_style['top']}`)

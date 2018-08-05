@@ -10,7 +10,6 @@
     "build": "webpack --config build/webpack.config.prod.js",
     "deploy": "git subtree push origin --prefix dist gh-pages",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
-
   },
   "author": "Meko Deng",
   "license": "ISC",
@@ -21,7 +20,8 @@
     "semantic-ui": "^2.3.2",
     "ts-loader": "^4.4.2",
     "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-svg-loader": "^0.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

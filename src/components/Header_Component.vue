@@ -2,6 +2,12 @@
     <header class="header">
         <div class="img"><img src="../assets/shibuff.png"></div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
+        <div class="logo_links">
+            <a><insta></insta></a>
+            <a><facebook></facebook></a>
+            <a><github></github></a>
+            <a><codepen></codepen></a>
+        </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-center'>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Projects'>PROJECTS</router-link></a>
@@ -14,11 +20,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import insta from '../assets/instagram_logo.svg'
+import facebook from '../assets/facebook_logo.svg'
+import github from '../assets/github_logo.svg'
+import codepen from '../assets/codepenio_logo.svg'
 
 export default Vue.extend({
     data() {
         return{
         }
+    },
+    components: {
+        insta, facebook, github, codepen
     },
     methods:{
         addClass(){
@@ -28,6 +41,7 @@ export default Vue.extend({
                 this.emit_finished()
             } else {
                 console.log('classes already exist!')
+                this.$emit('reloadBackToTop')
             }
         },
         add_newClasses() {
@@ -36,12 +50,14 @@ export default Vue.extend({
             let h1 = document.getElementsByClassName('h1_name')[0]
             let h2 = document.getElementsByClassName('h2_name')[0]
             let nav = document.getElementsByClassName('nav')[0]
+            let logos = document.getElementsByClassName('logo_links')[0]
 
             if (window.innerWidth < 900) {
                 nav.classList.add('navActive_small')
             } else {
                 nav.classList.add('navActive')
             }
+            logos.classList.add('logo_linksActive')
             header.classList.add('headerActive')
             image.classList.add('imgActive')
             h1.classList.add('h1Active')
@@ -49,7 +65,7 @@ export default Vue.extend({
         },
         emit_finished() {
             setTimeout (() => {
-                this.$emit("finishedLoading")
+                this.$emit('finishedLoading')
                 console.log('finished_loading')
             }, 2000)
         }
@@ -107,10 +123,23 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
-    top: calc(20% + 35vh + 70px);  
+    top: calc(20% + 35vh + 75px);  
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 
+}
+
+.logo_links {
+    position: absolute;
+    left: 0;
+    top: calc(20% + 35vh + 83px);
+    width: 100%;
+    text-align: center;
+    transform: scale(0.4);
+}
+
+.logo_links a {
+    opacity: 0.5;
 }
 
 h1, h2{
@@ -144,6 +173,10 @@ a {
     padding: 5px;
 }
 
+.logo_links a:hover {
+    opacity: 1;
+}
+
 a:hover {
     color: #707070; 
 }
@@ -165,12 +198,18 @@ a:hover {
     animation: h2_animation 1s forwards 0s ease;
 }
 
+.logo_linksActive {
+    animation: logo_links_animation 2.2s forwards 0.4s ease
+}
+
 .navActive {
     animation: nav_animation 2.2s forwards 0.5s ease;
 }
+
 .navActive_small {
     animation: nav_animation_small 2.2s forwards 0.5s ease;
 }
+
 /* ------ KEYFRAMES ------ */
 @keyframes move_header_up {
     from{height: 93vh}
@@ -199,6 +238,14 @@ a:hover {
     to{
         opacity: 0;
         }
+}
+
+@keyframes logo_links_animation{
+    from{}
+    to{
+        top: calc(15vh + 10px);
+        transform: translateY(5vh) scale(0.3);
+    }
 }
 
 @keyframes nav_animation{
