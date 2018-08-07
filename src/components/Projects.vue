@@ -6,7 +6,7 @@
         >
             <router-link :to="'/blog/' + post.slug">
                 <article class="media">
-                <figure class= "image">
+                <figure class= "image" :style="figure_background_color_style">
                     <img
                     v-if="post.featured_image"
                     :src="post.featured_image"
@@ -17,10 +17,10 @@
                     src="http://via.placeholder.com/250x250"
                     alt=""
                     >
-                </figure>
+                    <p class="post_summary">{{ post.summary }}</p>
+                </figure> 
                 </article>
-                <h2 class="post_title">{{ post.title }}</h2>
-                <p class="post_summary">{{ post.summary }}</p>                 
+                <h2 class="post_title">{{ post.title }}</h2>                
             </router-link>      
         </div>
   </div>
@@ -38,9 +38,18 @@ export default Vue.extend({
     data() {
         return{
             page_title: 'Blog',
-            posts: <any>[]           
+            posts: <any>[],
+            figure_background_color: <string>'black',
+            doit: <number>0                           
         }
     },
+    computed: {
+        figure_background_color_style(): any {
+            return {
+                background: this.figure_background_color
+            }
+        }
+    },    
     methods: {
       getPosts() {
         butter.post.list({
@@ -57,10 +66,16 @@ export default Vue.extend({
         //   this.posts = res.data.data
           console.log(this.posts)
         })
+      },
+      hide_black_background() {
+          this.figure_background_color  = 'white'
+          clearTimeout(this.doit)
+          this.doit = setTimeout(() =>{this.figure_background_color  = 'black'}, 500)
       }
     },    
     created() {
       this.getPosts()
+      window.addEventListener('resize',this.hide_black_background)
     }
 })
 </script>
@@ -73,27 +88,37 @@ export default Vue.extend({
 }
 
 .image {
+    position: relative;
     margin: 0;
+    opacity: 1;
+    border-radius: 10px;
+    width: 20vw;
+    height: 15vw;
+    /* background: black; */
 }
 
 img {
     border-radius: 10px;
     width: 20vw;
     height: 15vw;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;    
 }
 
 .wrapper {
+    position: relative;
     display: grid;
     grid-template-columns: 20vw 20vw 20vw;
     grid-column-gap: 5vw;
     grid-row-gap: 5vh;
     justify-items: center;
+    /* border: 2px solid #2B9DFF; */
 }
 
 .center {
     margin: 0;
     position: absolute;
-    margin-top: calc(250px - 30vh);
+    /* margin-top: calc(250px - 30vh); */
     left: 50%;
     transform: translate(-50%);
 }
@@ -105,9 +130,25 @@ img {
 }
 
 .post_summary {
+    position: absolute;
     font-family: Montserrat;
     text-align: center;
-    font-size: 15px
+    font-size: 15px;
+    color: white;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out; 
+}
+
+.image:hover .post_summary{
+    opacity: 1;
+}
+
+.image:hover img {
+    opacity: 0.6
 }
 
 a {
@@ -119,6 +160,11 @@ a {
         color: #fff;
         border-radius: 10px;
         width: 30vw;
+    }
+
+    .image {
+        width: 30vw;
+        height: 25vw;
     }    
 
     img {
@@ -134,5 +180,31 @@ a {
         grid-row-gap: 5vh;
         justify-items: center;
     }    
+}
+
+@media (max-width: 600px) {
+    .box {
+        color: #fff;
+        border-radius: 10px;
+        width: 50vw;
+    }
+
+    .image {
+        width: 50vw;
+        height: 40vw;
+    }    
+
+    img {
+        border-radius: 10px;
+        width: 50vw;
+        height: 40vw;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 50vw;
+        grid-row-gap: 5vh;
+        justify-items: center;
+    }        
 }
 </style>
