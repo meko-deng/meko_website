@@ -82,4 +82,8 @@ html { margin-left: calc(100vw - 100%); }
   bottom: 0;
   height: 100px;
 }
+
+div {
+  overflow: hidden;
+}
 </style>

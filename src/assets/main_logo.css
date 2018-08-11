@@ -1,0 +1,42 @@
+.eye_1, .eye_2{
+    animation: blink_eyes 2s forwards 0s ease;
+    animation-iteration-count: infinite;
+    ry:0.1px;
+    rx:2px
+}
+
+@keyframes blink_eyes {
+    0%{        
+        ry:2.313px;
+        rx:1px }
+    20%{
+        ry:2.313px;
+        rx:1px        
+    }
+    23% {
+        ry:0.1px;
+        rx:2px        
+    }
+    26%{
+        ry:2.313px;
+        rx:1px        
+    }    
+    40%{
+        ry:2.313px;
+        rx:1px        
+    }
+    43% {
+        ry:0.1px;
+        rx:2px        
+    }
+    46%{
+        ry:2.313px;
+        rx:1px        
+    }    
+    100%{
+        ry:2.313px;
+        rx:1px        
+    }    
+    
+
+}

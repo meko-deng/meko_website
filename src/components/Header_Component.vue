@@ -109,16 +109,16 @@ h1 {
 }
 .h1_name {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh);
+    left: -210px;
+    top: calc(20% + 11vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
 
 .h2_name {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh + 27px);
+    left: -210px;
+    top: calc(20% + 11vh + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
@@ -126,7 +126,7 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
-    top: calc(20% + 39vh + 70px);  
+    top: calc(20% + 39vh + 150px);  
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 
@@ -134,8 +134,8 @@ h1 {
 
 .logo_links {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh + 78px);
+    left: 153px;
+    top: 3.5vh;
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -232,6 +232,7 @@ a:hover {
     from{}
     to{
         top: 15vh;
+        left: 0vw;
         transform: translateY(5vh) scale(0.7);
         }
 }
@@ -247,6 +248,7 @@ a:hover {
     from{}
     to{
         top: calc(15vh + 10px);
+        left: 0vw;
         transform: translateY(5vh) scale(0.3);
     }
 }
