@@ -1,10 +1,10 @@
 <template>
     <header class="header">
-        <div class="img"><img src="../assets/shibuff.png"></div>
+        <!-- <div class="img"><img src="../assets/shibuff.png"></div> -->
+        <div class="img"><main-logo></main-logo></div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="logo_links">
             <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><insta></insta></a>
-            <!-- <a><facebook></facebook></a> -->
             <a href="https://github.com/MekoDeng94" target="_blank"><github></github></a>
             <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
         </div>
@@ -20,6 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import mainLogo from '../assets/main_logo.svg'
 import insta from '../assets/instagram_logo.svg'
 import facebook from '../assets/facebook_logo.svg'
 import github from '../assets/github_logo.svg'
@@ -31,7 +32,7 @@ export default Vue.extend({
         }
     },
     components: {
-        insta, facebook, github, codepen
+        insta, facebook, github, codepen, mainLogo
     },
     methods:{
         addClass(){
@@ -99,6 +100,7 @@ img {
     top: 20%;
     width: 100%;
     text-align: center;
+    height: 50vh;
     /* border: 2px solid rgb(255, 43, 43); */
 }
 h1 {
@@ -107,7 +109,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: 0;
-    top: calc(20% + 35vh);
+    top: calc(20% + 39vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
@@ -115,7 +117,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: 0;
-    top: calc(20% + 35vh + 27px);
+    top: calc(20% + 39vh + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
@@ -123,7 +125,7 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
-    top: calc(20% + 35vh + 75px);  
+    top: calc(20% + 39vh + 70px);  
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43);    */
     text-align: center; 
@@ -132,7 +134,7 @@ h1 {
 .logo_links {
     position: absolute;
     left: 0;
-    top: calc(20% + 35vh + 83px);
+    top: calc(20% + 39vh + 78px);
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -276,7 +278,9 @@ a:hover {
     100%{
         /* top: 30vh;
         left: calc(100vw - 100%); */
-        top: 25vh;
+        
+        /*adjust below value as needed*/
+        top: calc(30vh + 10px);
         opacity: 1;
         transform: scale(0.8);
         text-align: center;

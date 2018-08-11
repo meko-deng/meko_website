@@ -45,6 +45,7 @@ export default Vue.extend({
     },
     //50 seems like a good time to let component render, then have the back to top set to the bottom..
     //otherwise back to top would render in the middle of the page
+    //have it look for when the height changes, don't set a timeout because it would depend on internet speed
     change_clientHeight() {
       setTimeout(() => {
         this.get_clientHeight()
