@@ -97,10 +97,11 @@ img {
 .img {
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 40%;
     width: 100%;
     text-align: center;
-    height: 50vh;
+    /* height: 50vh; */
+    transform: scale(5.5);
     /* border: 2px solid rgb(255, 43, 43); */
 }
 h1 {
