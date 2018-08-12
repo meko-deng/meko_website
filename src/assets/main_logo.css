@@ -1,8 +1,60 @@
-.eye_1, .eye_2{
+/* .eye_1, .eye_2{
     animation: blink_eyes 2s forwards 0s ease;
     animation-iteration-count: infinite;
     ry:0.1px;
     rx:2px
+} */
+
+.cloud_group {
+    animation: cloud_move_up_down 5s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+.Layer_2 {
+    animation: face_move_up_down 8s forwards 0s, blink_eyes 2s forwards 0s ease;
+    animation-iteration-count: infinite;
+}
+
+.shadow {
+    animation: move_shadow 8s forwards 0s;
+    animation-iteration-count: infinite;
+    transform-origin: 80.746px 105.523px     
+}
+
+@keyframes move_shadow {
+    0% {
+        transform: scaleX(0.8);
+    }
+    50% {
+        transform: scaleX(1.4);
+    }
+    100% {
+        transform: scaleX(0.8);
+    }
+}
+
+@keyframes face_move_up_down {
+    0% {
+        transform: translateY(-0.2vh)
+    }
+    50% {
+        transform: translateY(0.8vh)
+    }
+    100% {
+        transform: translateY(-0.2vh)
+    }    
+}
+
+@keyframes cloud_move_up_down {
+    0% {
+        transform: translateY(-0.5vh)
+    }
+    50% {
+        transform: translateY(1.5vh)
+    }
+    100% {
+        transform: translateY(-0.5vh)
+    }
 }
 
 @keyframes blink_eyes {
@@ -21,15 +73,15 @@
         ry:2.313px;
         rx:1px        
     }    
-    40%{
+    30%{
         ry:2.313px;
         rx:1px        
     }
-    43% {
+    33% {
         ry:0.1px;
         rx:2px        
     }
-    46%{
+    36%{
         ry:2.313px;
         rx:1px        
     }    

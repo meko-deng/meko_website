@@ -3,7 +3,7 @@
     <header-component class="header_component_class" 
                       v-on:finishedLoading="set_fadeIn()"
                       v-on:reloadBackToTop="change_clientHeight()"></header-component>
-    <router-view :style="router_height_style" :class="{'noshow': true,'fadein': play_fadeIn, 'router_element': true}"></router-view>
+    <router-view :style="router_height_style" :class="{'noshow': true, 'fadein': play_fadeIn, 'router_element': true}"></router-view>
     <footer-component :style="height_style" class="footer_element" v-if="play_fadeIn"></footer-component>
   </div>
 </template>

@@ -9,7 +9,8 @@
             <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
-        <div class='nav nav-center'>
+        <!-- <div class='nav nav-center'> -->
+        <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Projects'>PROJECTS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Blog'>BLOGS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
@@ -126,16 +127,28 @@ h1 {
 .nav {
     position: absolute;
     left: 0;
+    /* top: calc(20% + 39vh + 150px);  
+    width: 100%;
+    text-align: center;  */
+}
+
+/* .nav-center {
     top: calc(20% + 39vh + 150px);  
     width: 100%;
-    /* border: 2px solid rgb(255, 43, 43);    */
-    text-align: center; 
+    text-align: center;    
+} */
+
+.nav-side {
+    left: 30vw;
+    top: 70vh;
+    width: 10%; 
+    text-align: center;   
 }
 
 .logo_links {
     position: absolute;
-    left: 153px;
-    top: 3.5vh;
+    left: -14.5vw;
+    top: 60vh;
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -271,6 +284,7 @@ a:hover {
         top: 5%;
         left: calc(100vw - 100%);
         opacity: 1;
+        width: 100%; 
         transform: translateY(0vh) scale(0.8);
         text-align: right;
         }
