@@ -95,10 +95,6 @@
 	<ellipse class="cloud_group" fill="#DCEFF4" cx="66.647" cy="31.735" rx="3.164" ry="2.905"/>
 	<ellipse class="cloud_group" fill="#DCEFF4" cx="63.482" cy="32.825" rx="3.623" ry="1.869"/>
 	<ellipse class="cloud_group" fill="#DCEFF4" cx="82.037" cy="32.963" rx="2.008" ry="1.637"/>
-	<path fill="none" stroke="#9ADBF8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M39.32,52.923
-		c-3.119,1.317,0.682,3.996,0.682,3.996c-3.375,0.063-5.271-2.002-5.271-2.002l0,0.001c-0.425,0.135-0.86,0.263-1.305,0.382
-		c-2.818,0.756-6.024,1.183-9.425,1.183c-11.253,0-20.375-4.68-20.375-10.452c0-5.772,9.122-10.452,20.375-10.452
-		s20.375,4.679,20.375,10.452c0,2.612-1.868,5-4.957,6.833"/>
 </g>
 <g class="Layer_7">
 	

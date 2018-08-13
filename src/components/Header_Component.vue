@@ -1,7 +1,8 @@
 <template>
     <header class="header">
         <!-- <div class="img"><img src="../assets/shibuff.png"></div> -->
-        <div class="img"><main-logo></main-logo></div>
+        <div class="img"><main-logo-small></main-logo-small></div>
+        <!-- <div class="img" v-else><main-logo-small></main-logo-small></div> -->
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="logo_links">
             <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><insta></insta></a>
@@ -9,7 +10,8 @@
             <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
-        <div class='nav nav-center'>
+        <!-- <div class='nav nav-center'> -->
+        <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Projects'>PROJECTS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Blog'>BLOGS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
@@ -21,6 +23,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import mainLogo from '../assets/main_logo.svg'
+import mainLogoSmall from '../assets/main_logo_small.svg'
 import insta from '../assets/instagram_logo.svg'
 import facebook from '../assets/facebook_logo.svg'
 import github from '../assets/github_logo.svg'
@@ -32,8 +35,13 @@ export default Vue.extend({
         }
     },
     components: {
-        insta, facebook, github, codepen, mainLogo
+        insta, facebook, github, codepen, mainLogo, mainLogoSmall
     },
+    // computed: {
+    //     big(): any {
+    //         return(window.innerWidth > 1000)
+    //     }
+    // },
     methods:{
         addClass(){
             //if the active classes haven't been added already
@@ -97,10 +105,11 @@ img {
 .img {
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 40%;
     width: 100%;
     text-align: center;
-    height: 50vh;
+    /* height: 50vh; */
+    transform: scale(5.5);
     /* border: 2px solid rgb(255, 43, 43); */
 }
 h1 {
@@ -108,33 +117,46 @@ h1 {
 }
 .h1_name {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh);
+    left: -15vw;
+    top: calc(20% + 14vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
 
 .h2_name {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh + 27px);
+    left: -15vw;
+    top: calc(20% + 14vh + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
 
 .nav {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh + 70px);  
+    /* left: 0; */
+    /* top: calc(20% + 39vh + 150px);  
     width: 100%;
-    /* border: 2px solid rgb(255, 43, 43);    */
-    text-align: center; 
+    text-align: center;  */
+}
+
+/* .nav-center {
+    top: calc(20% + 39vh + 150px);  
+    width: 100%;
+    text-align: center;    
+} */
+
+.nav-side {
+    position: absolute;
+    left: 29.25vw;
+    top: 53vh;
+    width: 10%; 
+    text-align: center;   
 }
 
 .logo_links {
     position: absolute;
-    left: 0;
-    top: calc(20% + 39vh + 78px);
+    left: -15vw;
+    top: 42vh;
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -231,6 +253,7 @@ a:hover {
     from{}
     to{
         top: 15vh;
+        left: 0vw;
         transform: translateY(5vh) scale(0.7);
         }
 }
@@ -246,6 +269,7 @@ a:hover {
     from{}
     to{
         top: calc(15vh + 10px);
+        left: 0vw;
         transform: translateY(5vh) scale(0.3);
     }
 }
@@ -268,6 +292,7 @@ a:hover {
         top: 5%;
         left: calc(100vw - 100%);
         opacity: 1;
+        width: 100%; 
         transform: translateY(0vh) scale(0.8);
         text-align: right;
         }
@@ -285,5 +310,50 @@ a:hover {
         transform: scale(0.8);
         text-align: center;
     }
+}
+
+@media (max-width: 1060px) {
+    .img {
+        position: absolute;
+        left: -7vw;
+        top: calc(2vh + 27px + 13px + 15vh);
+        width: 100%;
+        text-align: center;
+        /* height: 50vh; */
+        transform: scale(3.5);
+        /* border: 2px solid rgb(255, 43, 43); */       
+    }
+
+    .h1_name {
+        position: absolute;
+        left: 0;
+        top: 2vh;
+        width: 100%;
+        /* border: 2px solid rgb(255, 43, 43); */
+    }
+    .h2_name {
+        position: absolute;
+        left: 0;
+        top: calc(2vh + 27px);
+        width: 100%;
+        /* border: 2px solid #2B9DFF;    */
+    }  
+
+    .logo_links {
+        position: absolute;
+        left: 0;
+        top: calc(2vh + 27px + 13px + 15vh + 250px);
+        width: 100%;
+        text-align: center;
+        transform: scale(0.4);
+    }  
+
+    .nav-side {
+        position: absolute;
+        left: 0;
+        top: calc(2vh + 27px + 13px + 15vh + 290px);
+        width: 100%; 
+        text-align: center;   
+    }        
 }
 </style>

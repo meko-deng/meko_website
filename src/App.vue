@@ -3,7 +3,7 @@
     <header-component class="header_component_class" 
                       v-on:finishedLoading="set_fadeIn()"
                       v-on:reloadBackToTop="change_clientHeight()"></header-component>
-    <router-view :style="router_height_style" :class="{'noshow': true,'fadein': play_fadeIn, 'router_element': true}"></router-view>
+    <router-view :style="router_height_style" :class="{'noshow': true, 'fadein': play_fadeIn, 'router_element': true}"></router-view>
     <footer-component :style="height_style" class="footer_element" v-if="play_fadeIn"></footer-component>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default Vue.extend({
     set_fadeIn() {
       this.play_fadeIn = true
       this.get_clientHeight()
+      console.log('here')
       // console.log('set_fadeIn was called')
     },
     //50 seems like a good time to let component render, then have the back to top set to the bottom..
@@ -52,9 +53,11 @@ export default Vue.extend({
       },50)
     },
     get_clientHeight() {
-      console.log('changing')
-      this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
-      this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+      if (this.play_fadeIn) {
+        console.log('changing')
+        this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
+        this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+      }
       // console.log(`height style: ${this.height_style['top']}`)
     }
   },
@@ -75,11 +78,22 @@ export default Vue.extend({
 <style lang="css">
 html { margin-left: calc(100vw - 100%); }
 
+div {
+  overflow: hidden;
+}
+
 .footer_element {
   position: absolute;
   width: 99%;
   left: 0;
   bottom: 0;
   height: 100px;
+}
+
+@media (max-width: 1060px) {
+  .header_component_class {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 </style>
