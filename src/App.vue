@@ -41,6 +41,7 @@ export default Vue.extend({
     set_fadeIn() {
       this.play_fadeIn = true
       this.get_clientHeight()
+      console.log('here')
       // console.log('set_fadeIn was called')
     },
     //50 seems like a good time to let component render, then have the back to top set to the bottom..
@@ -52,9 +53,11 @@ export default Vue.extend({
       },50)
     },
     get_clientHeight() {
-      console.log('changing')
-      this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
-      this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+      if (this.play_fadeIn) {
+        console.log('changing')
+        this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
+        this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+      }
       // console.log(`height style: ${this.height_style['top']}`)
     }
   },
@@ -75,6 +78,10 @@ export default Vue.extend({
 <style lang="css">
 html { margin-left: calc(100vw - 100%); }
 
+div {
+  overflow: hidden;
+}
+
 .footer_element {
   position: absolute;
   width: 99%;
@@ -83,7 +90,10 @@ html { margin-left: calc(100vw - 100%); }
   height: 100px;
 }
 
-div {
-  overflow: hidden;
+@media (max-width: 1060px) {
+  .header_component_class {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 </style>
