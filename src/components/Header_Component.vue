@@ -61,14 +61,15 @@ export default Vue.extend({
             let nav = document.getElementsByClassName('nav')[0]
             let logos = document.getElementsByClassName('logo_links')[0]
 
-            if (window.innerWidth < 900) {
+            if (window.innerWidth < 1060) {
                 nav.classList.add('navActive_small')
+                image.classList.add('imgActive_small')
             } else {
                 nav.classList.add('navActive')
+                image.classList.add('imgActive')
             }
             logos.classList.add('logo_linksActive')
             header.classList.add('headerActive')
-            image.classList.add('imgActive')
             h1.classList.add('h1Active')
             h2.classList.add('h2Active')
         },
@@ -77,7 +78,24 @@ export default Vue.extend({
                 this.$emit('finishedLoading')
                 console.log('finished_loading')
             }, 2000)
+        },
+        get_clientWidth() {
+            let header = document.getElementsByClassName('header')[0]
+            let image = document.getElementsByClassName('img')[0]
+            let h1 = document.getElementsByClassName('h1_name')[0]
+            let h2 = document.getElementsByClassName('h2_name')[0]
+            let nav = document.getElementsByClassName('navActive')
+            let logos = document.getElementsByClassName('logo_links')[0]
+            
+            if (window.innerWidth < 1060) {
+                if (nav.length > 0) {
+                    console.log('add another class')
+                }
+            }
         }
+    },
+    created: function() {
+        window.addEventListener('resize',this.get_clientWidth)
     }
 })
 </script>
@@ -234,6 +252,10 @@ a:hover {
     animation: nav_animation_small 2.2s forwards 0.5s ease;
 }
 
+.imgActive_small {
+    animation: img_animation_small 2.2s forwards 0s ease;
+}
+
 /* ------ KEYFRAMES ------ */
 @keyframes move_header_up {
     from{height: 93vh}
@@ -246,6 +268,13 @@ a:hover {
     from{}
     to{
         transform: translateY(-35%) scale(0.5);
+        }
+}
+
+@keyframes img_animation_small{
+    from{}
+    to{
+        transform: translateY(-120%) translateX(4%) scale(1);
         }
 }
 
@@ -354,6 +383,6 @@ a:hover {
         top: calc(2vh + 27px + 13px + 15vh + 290px);
         width: 100%; 
         text-align: center;   
-    }        
+    }       
 }
 </style>

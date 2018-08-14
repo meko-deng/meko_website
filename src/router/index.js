@@ -1,14 +1,15 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 import Projects from '../components/Projects.vue'
 import Blog from '../components/Blog.vue'
 import Aboutme from '../components/About_me.vue'
 import Resume from '../components/Resume.vue'
 import BlogPost from '../components/BlogPost.vue'
 
-Vue.use(VueRouter)
+Vue.use(Router)
+Vue.config.silent = true
 
-export default new VueRouter({
+export default new Router({
   routes: [
     {
       path: '/Projects',
