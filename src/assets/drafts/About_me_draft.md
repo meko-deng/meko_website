@@ -1,1 +1,0 @@
-illustrator, developer and occasional storyteller
