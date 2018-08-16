@@ -79,23 +79,48 @@ export default Vue.extend({
                 console.log('finished_loading')
             }, 2000)
         },
-        get_clientWidth() {
+        adjust_clientWidth() {
             let header = document.getElementsByClassName('header')[0]
             let image = document.getElementsByClassName('img')[0]
             let h1 = document.getElementsByClassName('h1_name')[0]
             let h2 = document.getElementsByClassName('h2_name')[0]
-            let nav = document.getElementsByClassName('navActive')
+            let nav = document.getElementsByClassName('nav')[0]
             let logos = document.getElementsByClassName('logo_links')[0]
             
+            //do this for big and small, and for smashing the screen (remove elements until minimum)
             if (window.innerWidth < 1060) {
-                if (nav.length > 0) {
-                    console.log('add another class')
+                // if the page became smaller
+                let bigActive = document.getElementsByClassName('big-nav')
+                let navActive = document.getElementsByClassName('navActive')
+                if (bigActive.length > 0) {
+                    nav.classList.add('small-nav')
+                    nav.classList.remove('big-nav')
+                } else if (navActive.length > 0) {
+                    nav.classList.add('small-nav')
+                    nav.classList.remove('nav-side')
+                    nav.classList.remove('navActive')
+
+                    // h1.classList.add('small-h1')
+                    // h1.classList.remove('h1Active')
+                }
+            } else {
+                console.log('in else')
+                let smallActive = document.getElementsByClassName('small-nav')
+                let smallnavActive = document.getElementsByClassName('navActive_small')
+                if (smallActive.length > 0) {
+                    nav.classList.add('big-nav')
+                    nav.classList.remove('small-nav') 
+                                
+                } else if (smallnavActive.length > 0) {
+                    nav.classList.add('big-nav')
+                    nav.classList.remove('nav-side')
+                    nav.classList.remove('navActive_small')
                 }
             }
         }
     },
     created: function() {
-        window.addEventListener('resize',this.get_clientWidth)
+        window.addEventListener('resize',this.adjust_clientWidth)
     }
 })
 </script>
@@ -111,6 +136,7 @@ export default Vue.extend({
     /* border: 2px solid #2B9DFF; */
     border-radius: 6px;
     transition: all .2s ease-in;
+    overflow: hidden;
 }
 
 img {
@@ -133,12 +159,19 @@ img {
 h1 {
     display: block;
 }
+
 .h1_name {
     position: absolute;
     left: -15vw;
     top: calc(20% + 14vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
+}
+
+.small-h1 {
+    top: 15vh;
+    left: 0vw;
+    transform: translateY(5vh) scale(0.7);    
 }
 
 .h2_name {
@@ -151,10 +184,21 @@ h1 {
 
 .nav {
     position: absolute;
-    /* left: 0; */
-    /* top: calc(20% + 39vh + 150px);  
+}
+
+.small-nav {
     width: 100%;
-    text-align: center;  */
+    top: 0vh;
+    transform: scale(0.8);
+    text-align: center;
+}
+
+.big-nav {
+    top: 5%;
+    left: calc(100vw - 100%);
+    width: 100%; 
+    transform: scale(0.8);
+    text-align: right;
 }
 
 /* .nav-center {
@@ -274,7 +318,8 @@ a:hover {
 @keyframes img_animation_small{
     from{}
     to{
-        transform: translateY(-120%) translateX(4%) scale(1);
+        top: 1vh;
+        transform: translateX(4%) scale(1);
         }
 }
 
@@ -330,11 +375,7 @@ a:hover {
 @keyframes nav_animation_small{
     0%{opacity: 1}
     100%{
-        /* top: 30vh;
-        left: calc(100vw - 100%); */
-        
-        /*adjust below value as needed*/
-        top: calc(30vh + 10px);
+        top: 0;
         opacity: 1;
         transform: scale(0.8);
         text-align: center;
