@@ -1,8 +1,8 @@
 <template>
     <header class="header">
-        <!-- <div class="img"><img src="../assets/shibuff.png"></div> -->
-        <div class="img"><main-logo-small></main-logo-small></div>
-        <!-- <div class="img" v-else><main-logo-small></main-logo-small></div> -->
+        <div class="img imgStatic"><main-logo-small v-if="logoTrue.main"></main-logo-small>
+                                    <test v-else></test>
+        </div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="logo_links">
             <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><insta></insta></a>
@@ -10,9 +10,8 @@
             <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
-        <!-- <div class='nav nav-center'> -->
         <div class='nav nav-side'>
-            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Projects'>PROJECTS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Blog'>BLOGS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Resume'>RESUME</router-link></a>
@@ -29,13 +28,24 @@ import facebook from '../assets/facebook_logo.svg'
 import github from '../assets/github_logo.svg'
 import codepen from '../assets/codepenio_logo.svg'
 
+import test from '../assets/pages/test.svg'
+
 export default Vue.extend({
     data() {
         return{
+            //could use VueX
+            logoTrue: <Object> {
+                'main': true,
+                'project': false,
+                'blog': false,
+                'aboutme': false,
+                'resume': false
+            },
+            main: <boolean>true
         }
     },
     components: {
-        insta, facebook, github, codepen, mainLogo, mainLogoSmall
+        insta, facebook, github, codepen, mainLogo, mainLogoSmall, test
     },
     // computed: {
     //     big(): any {
@@ -52,6 +62,21 @@ export default Vue.extend({
                 console.log('classes already exist!')
                 this.$emit('reloadBackToTop')
             }
+            // this.add_newClasses()
+            // this.emit_finished()  
+            // this.$emit('reloadBackToTop')          
+        },
+        setLogoTrue(target) {
+            for (var key in this.logoTrue) {
+                if (this.logoTrue.hasOwnProperty(key)) {
+                    if (key == target) {
+                        this.logoTrue[key] = true
+                    } else {
+                        this.logoTrue[key] = false
+                    }
+                }
+            }
+            console.log(this.logoTrue)
         },
         add_newClasses() {
             let header = document.getElementsByClassName('header')[0]
@@ -72,6 +97,8 @@ export default Vue.extend({
             header.classList.add('headerActive')
             h1.classList.add('h1Active')
             h2.classList.add('h2Active')
+
+            image.classList.remove('imgStatic')
         },
         emit_finished() {
             setTimeout (() => {
@@ -82,26 +109,26 @@ export default Vue.extend({
         adjust_clientWidth() {
             let header = document.getElementsByClassName('header')[0]
             let image = document.getElementsByClassName('img')[0]
-            let h1 = document.getElementsByClassName('h1_name')[0]
-            let h2 = document.getElementsByClassName('h2_name')[0]
             let nav = document.getElementsByClassName('nav')[0]
-            let logos = document.getElementsByClassName('logo_links')[0]
             
             //do this for big and small, and for smashing the screen (remove elements until minimum)
             if (window.innerWidth < 1060) {
-                // if the page became smaller
                 let bigActive = document.getElementsByClassName('big-nav')
                 let navActive = document.getElementsByClassName('navActive')
                 if (bigActive.length > 0) {
                     nav.classList.add('small-nav')
                     nav.classList.remove('big-nav')
+                    
+                    image.classList.add('small-img')
+                    image.classList.remove('big-img')
+
                 } else if (navActive.length > 0) {
                     nav.classList.add('small-nav')
                     nav.classList.remove('nav-side')
                     nav.classList.remove('navActive')
-
-                    // h1.classList.add('small-h1')
-                    // h1.classList.remove('h1Active')
+                    
+                    image.classList.add('small-img')
+                    image.classList.remove('imgActive')
                 }
             } else {
                 console.log('in else')
@@ -109,12 +136,18 @@ export default Vue.extend({
                 let smallnavActive = document.getElementsByClassName('navActive_small')
                 if (smallActive.length > 0) {
                     nav.classList.add('big-nav')
-                    nav.classList.remove('small-nav') 
+                    nav.classList.remove('small-nav')
+
+                    image.classList.add('big-img')
+                    image.classList.remove('small-img')                     
                                 
                 } else if (smallnavActive.length > 0) {
                     nav.classList.add('big-nav')
                     nav.classList.remove('nav-side')
                     nav.classList.remove('navActive_small')
+
+                    image.classList.add('big-img')
+                    image.classList.remove('imgActive_small')                    
                 }
             }
         }
@@ -156,6 +189,17 @@ img {
     transform: scale(5.5);
     /* border: 2px solid rgb(255, 43, 43); */
 }
+
+.small-img {
+    position: absolute;
+    transform: translateY(-35%) scale(1.5);
+}
+
+.big-img {
+    position: absolute;
+    transform: translateY(-35%) scale(1.5);
+}
+
 h1 {
     display: block;
 }
@@ -166,12 +210,6 @@ h1 {
     top: calc(20% + 14vh);
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
-}
-
-.small-h1 {
-    top: 15vh;
-    left: 0vw;
-    transform: translateY(5vh) scale(0.7);    
 }
 
 .h2_name {
@@ -311,7 +349,7 @@ a:hover {
 @keyframes img_animation{
     from{}
     to{
-        transform: translateY(-35%) scale(0.5);
+        transform: translateY(-35%) scale(1.5);
         }
 }
 
@@ -319,7 +357,7 @@ a:hover {
     from{}
     to{
         top: 1vh;
-        transform: translateX(4%) scale(1);
+        transform: translateX(4%) scale(1.5);
         }
 }
 
@@ -349,7 +387,13 @@ a:hover {
 }
 
 @keyframes nav_animation{
-    0%{opacity: 1}
+    0%{opacity: 1;
+        position: absolute;
+        left: 29.25vw;
+        top: 53vh;
+        width: 10%; 
+        text-align: center;   
+    }
     30%{
         opacity: 0;
     }
@@ -383,15 +427,13 @@ a:hover {
 }
 
 @media (max-width: 1060px) {
-    .img {
+    .imgStatic {
         position: absolute;
         left: -7vw;
         top: calc(2vh + 27px + 13px + 15vh);
         width: 100%;
         text-align: center;
-        /* height: 50vh; */
-        transform: scale(3.5);
-        /* border: 2px solid rgb(255, 43, 43); */       
+        transform: scale(3.5);  
     }
 
     .h1_name {

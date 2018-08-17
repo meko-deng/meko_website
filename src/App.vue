@@ -4,7 +4,7 @@
                       v-on:finishedLoading="set_fadeIn()"
                       v-on:reloadBackToTop="change_clientHeight()"></header-component>
     <router-view :style="router_height_style" :class="{'noshow': true, 'fadein': play_fadeIn, 'router_element': true}"></router-view>
-    <footer-component :style="height_style" class="footer_element" v-if="play_fadeIn"></footer-component>
+    <footer-component :style="height_style" class="footer_element" v-if="showReload"></footer-component>
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default Vue.extend({
   data() {
       return{
         play_fadeIn: <boolean>false,
+        showReload: <boolean>false,
         render_footer: <boolean>false,
         clientHeightComputed: <number>0,
         router_height: <number>0,
@@ -41,22 +42,24 @@ export default Vue.extend({
     set_fadeIn() {
       this.play_fadeIn = true
       this.get_clientHeight()
-      console.log('here')
-      // console.log('set_fadeIn was called')
     },
     //50 seems like a good time to let component render, then have the back to top set to the bottom..
     //otherwise back to top would render in the middle of the page
     //have it look for when the height changes, don't set a timeout because it would depend on internet speed
     change_clientHeight() {
+      // console.log('reload back to top refresh called')
+      this.showReload = false
       setTimeout(() => {
         this.get_clientHeight()
-      },50)
+      },500)
     },
     get_clientHeight() {
+      this.showReload = false
       if (this.play_fadeIn) {
-        console.log('changing')
+        // console.log('changing')
         this.router_height = document.getElementsByClassName('router_element')[0].clientHeight
         this.header_height = document.getElementsByClassName('header_component_class')[0].clientHeight
+        this.showReload = true
       }
       // console.log(`height style: ${this.height_style['top']}`)
     }
