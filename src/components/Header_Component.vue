@@ -1,7 +1,8 @@
 <template>
     <header class="header">
         <div class="img imgStatic"><main-logo-small v-if="logoTrue.main"></main-logo-small>
-                                    <test v-else></test>
+                                    <projects-logo v-else></projects-logo>
+                                    <!-- <test v-else></test> -->
         </div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
         <div class="logo_links">
@@ -29,6 +30,7 @@ import github from '../assets/github_logo.svg'
 import codepen from '../assets/codepenio_logo.svg'
 
 import test from '../assets/pages/test.svg'
+import projectsLogo from '../assets/pages/projects.svg'
 
 export default Vue.extend({
     data() {
@@ -45,7 +47,7 @@ export default Vue.extend({
         }
     },
     components: {
-        insta, facebook, github, codepen, mainLogo, mainLogoSmall, test
+        insta, facebook, github, codepen, mainLogo, mainLogoSmall, test, projectsLogo
     },
     // computed: {
     //     big(): any {
@@ -192,12 +194,14 @@ img {
 
 .small-img {
     position: absolute;
-    transform: translateY(-35%) scale(1.5);
+    top: 9vh;
+    transform: scale(1.5);
 }
 
 .big-img {
     position: absolute;
-    transform: translateY(-35%) scale(1.5);
+    top: 10vh;
+    transform: scale(1.5);
 }
 
 h1 {
@@ -342,29 +346,33 @@ a:hover {
 @keyframes move_header_up {
     from{height: 93vh}
     to{
-        height: 30vh;
+        height: 40vh;
         }    
 }
 
 @keyframes img_animation{
-    from{}
-    to{
-        transform: translateY(-35%) scale(1.5);
+    0%{opacity: 0}
+    40%{opacity: 0}
+    100%{
+        opacity: 1;
+        top: 10vh;
+        transform:scale(1.5);
         }
 }
 
 @keyframes img_animation_small{
-    from{}
-    to{
-        top: 1vh;
-        transform: translateX(4%) scale(1.5);
+    0%{opacity: 0}
+    40%{opacity: 0}
+    100%{
+        top: 9vh;
+        transform: scale(1.5);
         }
 }
 
 @keyframes h1_animation{
     from{}
     to{
-        top: 15vh;
+        top: 25vh;
         left: 0vw;
         transform: translateY(5vh) scale(0.7);
         }
@@ -380,7 +388,7 @@ a:hover {
 @keyframes logo_links_animation{
     from{}
     to{
-        top: calc(15vh + 10px);
+        top: calc(25vh + 10px);
         left: 0vw;
         transform: translateY(5vh) scale(0.3);
     }

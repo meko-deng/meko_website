@@ -1,0 +1,48 @@
+.bone {
+    animation: bone_glow 3s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+.iris {
+    animation: iris_move 3s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes iris_move {
+    0%{transform: translateX(-1px)}
+    20%{
+        transform: translateX(-2px)
+    }
+    40%{
+        transform: translateX(-2px)
+    }
+    60%{
+        transform: translateX(0px)
+    }
+    80%{
+        transform: translateX(0px)
+    }
+    100%{
+        transform: translateX(-1px)
+    }
+
+}
+
+@keyframes bone_glow {
+    0%{
+        stroke: #000000;
+        fill: #000000
+    }
+    50% {
+        stroke: #fffaec;
+        fill: #fffaec
+    }
+    70%{
+        stroke: #fffaec;
+        fill: #fffaec        
+    }
+    100% {
+        stroke: #000000;
+        fill: #000000
+    }
+}
