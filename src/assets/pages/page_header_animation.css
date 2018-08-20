@@ -8,6 +8,156 @@
     animation-iteration-count: infinite;
 }
 
+.bag_group {
+    animation: bag_move 3s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+.blog_eyebrow{
+    animation: blog_eyebrow 3s forwards 1s;
+    animation-iteration-count: infinite;
+}
+
+.me_eyebrow{
+    animation: me_eyebrow 3s forwards 1s;
+    animation-iteration-count: infinite;    
+}
+.resume_eyebrow{
+    animation: resume_eyebrow 3s forwards 1s;
+    animation-iteration-count: infinite;    
+}
+
+.me_eye{
+    animation: blink 3s forwards 0s;
+    animation-iteration-count: infinite
+}
+
+.me_iris{
+    animation: blink_iris 3s forwards 0s;
+    animation-iteration-count: infinite
+}
+
+.star_1{
+    animation: star_1_animation 3s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+.star_2{
+    animation: star_2_animation 3s forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes star_1_animation {
+    0%{opacity:0}
+    20%{
+        opacity:1;
+    }
+    80%{opacity:1}
+    100%{opacity:0}
+}
+@keyframes star_2_animation {
+    0%{opacity:0}
+    40%{
+        opacity:1;
+    }
+    90%{opacity:1}
+    100%{opacity:0}
+}
+
+@keyframes blink_iris {
+    0%{        
+        ry:1.711px;
+        rx:2.635px
+        }
+    20%{
+        ry:1.711px;
+        rx:2.635px     
+    }
+    23% {
+        ry:1px;
+        rx:2.635px     
+    }
+    26%{
+        ry:1.711px;
+        rx:2.635px     
+    }    
+    30%{
+        ry:1px;
+        rx:2.635px      
+    }
+    33% {
+        ry:1.711px;
+        rx:2.635px       
+    }
+    36%{
+        ry:1.711px;
+        rx:2.635px      
+    }    
+    100%{
+        ry:1.711px;
+        rx:2.635px     
+    }  
+}
+
+@keyframes blink {
+    0%{        
+        ry:3.847px;
+        rx:7.314px
+        }
+    20%{
+        ry:3.847px;
+        rx:7.314px      
+    }
+    23% {
+        ry:1px;
+        rx:7.314px       
+    }
+    26%{
+        ry:3.847px;
+        rx:7.314px      
+    }    
+    30%{
+        ry:1px;
+        rx:7.314px       
+    }
+    33% {
+        ry:3.847px;
+        rx:7.314px       
+    }
+    36%{
+        ry:3.847px;
+        rx:7.314px      
+    }    
+    100%{
+        ry:3.847px;
+        rx:7.314px      
+    }  
+}
+
+@keyframes blog_eyebrow {
+    0%{transform: translateY(-2px)}
+    50%{transform: translateY(1px)}
+    100%{transform: translateY(-2px)}
+}
+
+@keyframes resume_eyebrow {
+    0%{transform: translateY(-1px)}
+    50%{transform: translateY(2px)}
+    100%{transform: translateY(-1px)}
+}
+
+@keyframes me_eyebrow {
+    0%{transform: translateY(-1.5px) translateX(-0.5px)}
+    50%{transform: translateY(1px)}
+    100%{transform: translateY(-1.5px) translateX(-0.5px)}
+}
+
+@keyframes bag_move {
+    0%{}
+    50%{transform: translateY(2px)}
+    100%{}
+}
+
 @keyframes iris_move {
     0%{transform: translateX(-1px)}
     20%{

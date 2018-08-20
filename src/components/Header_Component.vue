@@ -1,7 +1,10 @@
 <template>
     <header class="header">
         <div class="img imgStatic"><main-logo-small v-if="logoTrue.main"></main-logo-small>
-                                    <projects-logo v-else></projects-logo>
+                                    <projects-logo v-if="logoTrue.project"></projects-logo>
+                                    <blogs-logo v-if="logoTrue.blog"></blogs-logo>
+                                    <aboutme-logo v-if="logoTrue.aboutme"></aboutme-logo>
+                                    <resume-logo v-if="logoTrue.resume"></resume-logo>
                                     <!-- <test v-else></test> -->
         </div>
         <div class="h1_name"><h1 font>MEKO D.</h1></div>
@@ -13,9 +16,9 @@
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
-            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Blog'>BLOGS</router-link></a>
-            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Aboutme'>ABOUT ME</router-link></a>
-            <a class='nav-link' href='#'><router-link @click.native="addClass()" to='/Resume'>RESUME</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOGS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
         </div>
     </header>
 </template>
@@ -31,6 +34,9 @@ import codepen from '../assets/codepenio_logo.svg'
 
 import test from '../assets/pages/test.svg'
 import projectsLogo from '../assets/pages/projects.svg'
+import blogsLogo from '../assets/pages/blogs.svg'
+import aboutmeLogo from '../assets/pages/aboutme.svg'
+import resumeLogo from '../assets/pages/resume.svg'
 
 export default Vue.extend({
     data() {
@@ -47,7 +53,7 @@ export default Vue.extend({
         }
     },
     components: {
-        insta, facebook, github, codepen, mainLogo, mainLogoSmall, test, projectsLogo
+        insta, facebook, github, codepen, mainLogo, mainLogoSmall, test, projectsLogo, blogsLogo, aboutmeLogo, resumeLogo
     },
     // computed: {
     //     big(): any {
