@@ -133,9 +133,10 @@ img {
 }
 
 .post_summary {
+    font-family: Montserrat;
     position: absolute;
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     top:50%;
     left: 50%;

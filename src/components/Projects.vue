@@ -51,6 +51,7 @@ export default Vue.extend({
     },    
     methods: {
       getPosts() {
+        this.$store.commit('deny_back_to_top')
         butter.post.list({
           page: 1,
           page_size: 10
@@ -62,6 +63,7 @@ export default Vue.extend({
                     this.posts.push(data[i])
                 }
             }
+            this.$store.commit('allow_back_to_top')
         //   this.posts = res.data.data
         //   console.log(this.posts)
         })

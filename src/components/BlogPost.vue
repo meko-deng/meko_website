@@ -1,7 +1,7 @@
 <template>
   <div id="blog-post" class="fade_in center">
     <h1 class="montserrat">{{ post.data.title }}</h1>
-    <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
+    <!-- <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4> -->
     <div v-html="post.data.body" class="montserrat"></div>
 
     <router-link
@@ -37,9 +37,11 @@ export default Vue.extend({
     },
     methods: {
       getPost() {
+        this.$store.commit('deny_back_to_top')
         butter.post.retrieve(this.$route.params.slug)
           .then((res) => {
             this.post = res.data
+            this.$store.commit('allow_back_to_top')
           }).catch((res) => {
             console.log(res)
           })
@@ -62,9 +64,17 @@ export default Vue.extend({
     margin: 0;
     width: 60%;
     position: absolute;
-    margin-top: calc(250px - 30vh);
+    /* margin-top: calc(250px - 30vh); */
     left: 50%;
     transform: translate(-50%);
+}
+
+div {
+    font-size: 12px
+}
+
+h1 {
+    font-size: 20px
 }
 
 .montserrat {
