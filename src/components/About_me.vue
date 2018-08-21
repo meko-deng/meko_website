@@ -2,18 +2,16 @@
     <div class="center">
         <h1>Hi there! I'm Meko</h1>
         <h2>I consider myself a passionate illustrator, avid developer and occasional storyteller</h2>
-        I primarily focus on the process of learning and growth. This is what drives me to do the things I do.
-        I believe that starting or learning something new is s
+        My main focus is on the process of learning and growth.
         <!-- My goal is to inspire others to learn and grow through sharing -->
 
         <h2> Coding </h2>
         My journey to the path of becoming a developer started with web development through a memorable internship
-        experience. Though I am still in the early stages of , everyday, I am driven to learn more and improve on
+        experience. Though I am still in the early stages of this journey, everyday, I am driven to learn more and improve on
         areas where I'm lacking.
 
         <h2> Illustrating </h2>
         Art runs through my veins, illustrating helps me express myself and share bits and part of me with all of you.
-
         <br>
         <br>
         <br>
@@ -38,11 +36,26 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .center {
     margin-left: 20vw;
     margin-right: 20vw
 }
+
+div {
+    font-family: Montserrat;
+    font-size: 12px
+}
+
+h1 {
+    font-size: 20px
+}
+
+h2 {
+    font-size: 15px
+}
+
+
 </style>
 
 

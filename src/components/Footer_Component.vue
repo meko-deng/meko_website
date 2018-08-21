@@ -1,5 +1,5 @@
 <template>
-    <footer class="footerSection">
+    <footer class="footerSection" v-if="back_to_top">
         <h1 v-on:click="topFunction()">BACK TO TOP</h1>
     </footer>
 </template>
@@ -11,6 +11,11 @@ export default Vue.extend({
     data() {
         return{        
         }
+    },
+    computed: {
+		back_to_top():boolean{
+			return this.$store.state.main.back_to_top
+		},            
     },
     methods: {
         topFunction() {

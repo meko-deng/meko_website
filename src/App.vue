@@ -36,6 +36,16 @@ export default Vue.extend({
       return {
         top:`calc(${this.header_height}px + 20px)`
       }
+    },
+		back_to_top():boolean{
+			return this.$store.state.main.back_to_top
+		},      
+  },
+  watch: {
+    back_to_top: {
+      handler: function() {
+        this.change_clientHeight()
+      }
     }
   },
   methods: {
@@ -48,10 +58,13 @@ export default Vue.extend({
     //have it look for when the height changes, don't set a timeout because it would depend on internet speed
     change_clientHeight() {
       // console.log('reload back to top refresh called')
-      this.showReload = false
-      setTimeout(() => {
-        this.get_clientHeight()
-      },500)
+      if (this.back_to_top){
+        console.log('back to top is true')
+        this.showReload = false
+        setTimeout(() => {
+          this.get_clientHeight()
+        },500)
+      }
     },
     get_clientHeight() {
       this.showReload = false

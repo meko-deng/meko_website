@@ -63,7 +63,7 @@ export default Vue.extend({
                 }
             }
         //   this.posts = res.data.data
-          console.log(this.posts)
+        //   console.log(this.posts)
         })
       },
       hide_black_background() {

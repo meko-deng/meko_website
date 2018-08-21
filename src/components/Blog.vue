@@ -49,10 +49,11 @@ export default Vue.extend({
             return {
                 background: this.figure_background_color
             }
-        }
+        }      
     },
     methods: {
       getPosts() {
+        this.$store.commit('deny_back_to_top')
         butter.post.list({
           page: 1,
           page_size: 10
@@ -64,8 +65,9 @@ export default Vue.extend({
                     this.posts.push(data[i])
                 }
             }
+            this.$store.commit('allow_back_to_top')
         //   this.posts = res.data.data
-          console.log(this.posts)
+        //   console.log(this.posts)
         })
       },
       hide_black_background() {
@@ -132,7 +134,6 @@ img {
 
 .post_summary {
     position: absolute;
-    font-family: Montserrat;
     text-align: center;
     font-size: 15px;
     color: white;
