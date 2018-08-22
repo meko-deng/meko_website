@@ -12,6 +12,7 @@
             <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><insta></insta></a>
             <a href="https://github.com/MekoDeng94" target="_blank"><github></github></a>
             <a href="https://codepen.io/MekoDeng" target="_blank"><codepen></codepen></a>
+            <!-- LINKEDIN -->
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-side'>
@@ -443,7 +444,7 @@ a:hover {
 @media (max-width: 1060px) {
     .imgStatic {
         position: absolute;
-        left: -7vw;
+        left: -5vw;
         top: calc(2vh + 27px + 13px + 15vh);
         width: 100%;
         text-align: center;
