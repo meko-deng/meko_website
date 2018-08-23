@@ -178,7 +178,7 @@ export default Vue.extend({
     /* border: 2px solid #2B9DFF; */
     border-radius: 6px;
     transition: all .2s ease-in;
-    overflow: hidden;
+    overflow: visible;
 }
 
 img {

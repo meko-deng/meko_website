@@ -37,6 +37,7 @@ export default Vue.extend({
 <style lang="css" scoped>
 .footerSection {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 h1 {
