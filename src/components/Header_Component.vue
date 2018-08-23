@@ -17,7 +17,7 @@
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
-            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOGS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
         </div>
