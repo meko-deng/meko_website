@@ -191,7 +191,7 @@ img {
 .img {
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 200px;
     width: 100%;
     text-align: center;
     /* height: 50vh; */
@@ -201,13 +201,13 @@ img {
 
 .small-img {
     position: absolute;
-    top: 9vh;
+    top: 55px;
     transform: scale(1.5);
 }
 
 .big-img {
     position: absolute;
-    top: 10vh;
+    top: 57px;
     transform: scale(1.5);
 }
 
@@ -218,7 +218,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: -15vw;
-    top: calc(20% + 14vh);
+    top: 180px;
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
@@ -226,7 +226,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: -15vw;
-    top: calc(20% + 14vh + 27px);
+    top: calc(180px + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
@@ -259,7 +259,7 @@ h1 {
 .nav-side {
     position: absolute;
     left: 29.25vw;
-    top: 53vh;
+    top: calc(180px + 27px + 30px + 70px);
     width: 10%; 
     text-align: center;   
 }
@@ -267,7 +267,7 @@ h1 {
 .logo_links {
     position: absolute;
     left: -15vw;
-    top: 42vh;
+    top: calc(180px + 27px + 30px);
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -353,7 +353,8 @@ a:hover {
 @keyframes move_header_up {
     from{height: 93vh}
     to{
-        height: 40vh;
+        height: 240px;
+        overflow: visible
         }    
 }
 
@@ -362,7 +363,7 @@ a:hover {
     40%{opacity: 0}
     100%{
         opacity: 1;
-        top: 10vh;
+        top: 57px;
         transform:scale(1.5);
         }
 }
@@ -371,7 +372,7 @@ a:hover {
     0%{opacity: 0}
     40%{opacity: 0}
     100%{
-        top: 9vh;
+        top: 57px;
         transform: scale(1.5);
         }
 }
@@ -379,7 +380,7 @@ a:hover {
 @keyframes h1_animation{
     from{}
     to{
-        top: 25vh;
+        top: 150px;
         left: 0vw;
         transform: translateY(5vh) scale(0.7);
         }
@@ -395,7 +396,7 @@ a:hover {
 @keyframes logo_links_animation{
     from{}
     to{
-        top: calc(25vh + 10px);
+        top: 160px;
         left: 0vw;
         transform: translateY(5vh) scale(0.3);
     }
@@ -442,10 +443,15 @@ a:hover {
 }
 
 @media (max-width: 1060px) {
+    .header {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .imgStatic {
         position: absolute;
         left: -5vw;
-        top: calc(2vh + 27px + 13px + 15vh);
+        top: calc(10px + 27px + 13px + 90px);
         width: 100%;
         text-align: center;
         transform: scale(3.5);  
@@ -454,14 +460,14 @@ a:hover {
     .h1_name {
         position: absolute;
         left: 0;
-        top: 2vh;
+        top: 10px;
         width: 100%;
         /* border: 2px solid rgb(255, 43, 43); */
     }
     .h2_name {
         position: absolute;
         left: 0;
-        top: calc(2vh + 27px);
+        top: calc(10px + 27px);
         width: 100%;
         /* border: 2px solid #2B9DFF;    */
     }  
@@ -469,7 +475,7 @@ a:hover {
     .logo_links {
         position: absolute;
         left: 0;
-        top: calc(2vh + 27px + 13px + 15vh + 250px);
+        top: calc(10px + 27px + 13px + 90px + 250px);
         width: 100%;
         text-align: center;
         transform: scale(0.4);
@@ -478,7 +484,7 @@ a:hover {
     .nav-side {
         position: absolute;
         left: 0;
-        top: calc(2vh + 27px + 13px + 15vh + 290px);
+        top: calc(10px + 27px + 13px + 90px + 290px);
         width: 100%; 
         text-align: center;   
     }       

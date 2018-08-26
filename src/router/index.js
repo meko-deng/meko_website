@@ -13,17 +13,17 @@ export default new Router({
   routes: [
     {
       path: '/Projects',
-      name: 'projects',
+      name: 'Projects',
       component: Projects
     },
     {
       path: '/blog/',
-      name: 'blog',
+      name: 'Blog',
       component: Blog
     },
     {
       path: '/blog/:slug',
-      name: 'blog-post',
+      name: 'Blog-post',
       component: BlogPost
     },
     {
