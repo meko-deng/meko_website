@@ -106,6 +106,11 @@ div {
   height: 100px;
 }
 
+.header_component_class {
+  overflow-x:hidden;
+  overflow-y: auto;
+}
+
 @media (max-width: 1060px) {
   .header_component_class {
     overflow-y: auto;

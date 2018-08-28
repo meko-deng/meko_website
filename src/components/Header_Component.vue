@@ -178,7 +178,9 @@ export default Vue.extend({
     /* border: 2px solid #2B9DFF; */
     border-radius: 6px;
     transition: all .2s ease-in;
-    overflow: visible;
+    overflow: visible
+    /* overflow-x: hidden;
+    overflow-y: auto; */
 }
 
 img {
@@ -259,7 +261,7 @@ h1 {
 .nav-side {
     position: absolute;
     left: 29.25vw;
-    top: calc(180px + 27px + 30px + 70px);
+    top: calc(180px + 27px + 30px + 65px);
     width: 10%; 
     text-align: center;   
 }
