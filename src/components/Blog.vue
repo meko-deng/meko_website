@@ -18,6 +18,7 @@
                     alt=""
                     >
                     <p class="post_summary">{{ post.summary }}</p>
+                    <p class="read_more">Read more</p>
                 </figure> 
                 </article>
                 <h2 class="post_title">{{ post.title }}</h2>                
@@ -128,19 +129,37 @@ img {
 
 .post_title {
     color: #fdb027;
-    text-align: center;
+    text-align: left;
+    font-size: 17px;
     font-family: Montserrat;
 }
 
 .post_summary {
     font-family: Montserrat;
     position: absolute;
-    text-align: center;
+    text-align: left;
     font-size: 12px;
     color: white;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 10px;
+    right: 10px;
+    /* transform: translate(-50%, -50%); */
+    opacity: 0;
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out; 
+}
+
+.read_more {
+    font-family: Montserrat;
+    position: absolute;
+    text-align: right;
+    font-size: 12px;
+    color: white;
+    bottom: 0;
+    right: 10px;
+    /* left: 10px;
+    right: 10px; */
+    /* transform: translate(-50%, -50%); */
     opacity: 0;
     -webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out; 
@@ -148,6 +167,14 @@ img {
 
 .image:hover .post_summary{
     opacity: 1;
+}
+
+.image:hover .read_more{
+    opacity: 1;
+}
+
+.read_more:hover {
+    font-size: 13px;    
 }
 
 .image:hover img {

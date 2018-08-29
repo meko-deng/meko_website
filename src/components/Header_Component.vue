@@ -170,7 +170,7 @@ export default Vue.extend({
 <style lang="css" scoped>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .header {
-    height: 93vh;
+    height: 95vh;
     width: 100%;
     position: relative;
     top: 0;
@@ -178,16 +178,16 @@ export default Vue.extend({
     /* border: 2px solid #2B9DFF; */
     border-radius: 6px;
     transition: all .2s ease-in;
-    overflow: visible
-    /* overflow-x: hidden;
-    overflow-y: auto; */
+    /* overflow: visible */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 img {
     border-radius: 50%; 
     display: block;
     margin: 0 auto;
-    height: 35vh;   
+    height: 30vh;   
 }
 
 .img {
@@ -196,8 +196,7 @@ img {
     top: 200px;
     width: 100%;
     text-align: center;
-    /* height: 50vh; */
-    transform: scale(5.5);
+    transform: scale(5.3);
     /* border: 2px solid rgb(255, 43, 43); */
 }
 
@@ -353,7 +352,7 @@ a:hover {
 
 /* ------ KEYFRAMES ------ */
 @keyframes move_header_up {
-    from{height: 93vh}
+    from{height: 95vh}
     to{
         height: 240px;
         overflow: visible
@@ -382,9 +381,9 @@ a:hover {
 @keyframes h1_animation{
     from{}
     to{
-        top: 150px;
+        top: 175px;
         left: 0vw;
-        transform: translateY(5vh) scale(0.7);
+        transform: scale(0.7);
         }
 }
 
@@ -398,22 +397,27 @@ a:hover {
 @keyframes logo_links_animation{
     from{}
     to{
-        top: 160px;
+        top: 185px;
         left: 0vw;
-        transform: translateY(5vh) scale(0.3);
+        transform: scale(0.3);
     }
 }
 
 @keyframes nav_animation{
     0%{opacity: 1;
+        /* position: absolute;
+        left: 29.25vw;
+        top: 53vh;
+        width: 10%; 
+        text-align: center;    */
+    }
+    30%{
+        opacity: 0;
         position: absolute;
         left: 29.25vw;
         top: 53vh;
         width: 10%; 
-        text-align: center;   
-    }
-    30%{
-        opacity: 0;
+        text-align: center;           
     }
     49% {
         left: 0%
