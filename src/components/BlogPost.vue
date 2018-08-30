@@ -4,7 +4,7 @@
     <!-- <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4> -->
     <div v-html="post.data.body" class="montserrat"></div>
 
-    <router-link
+    <!-- <router-link
       v-if="post.meta.previous_post"
       :to="/blog/ + post.meta.previous_post.slug"
       class="button"
@@ -17,7 +17,7 @@
       class="button"
     >
       {{ post.meta.next_post.title }}
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 <script>
@@ -79,6 +79,11 @@ h1 {
 
 .montserrat {
   font-family: Montserrat;
+}
+
+img {
+  height: auto;
+  max-width: 60%;
 }
 
 </style>

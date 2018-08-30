@@ -456,10 +456,10 @@ a:hover {
 
     .imgStatic {
         position: absolute;
-        left: -5vw;
+        left: -50px;
         top: calc(10px + 27px + 13px + 90px);
         width: 100%;
-        text-align: center;
+        /* text-align: center; */
         transform: scale(3.5);  
     }
 
@@ -494,5 +494,15 @@ a:hover {
         width: 100%; 
         text-align: center;   
     }       
+}
+
+@media (max-width: 440px) {
+    .nav-side {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(10px + 27px + 13px + 90px + 290px);
+        width: 130px;
+        text-align: left;
+    }
 }
 </style>
