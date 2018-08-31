@@ -81,9 +81,17 @@ h1 {
   font-family: Montserrat;
 }
 
-img {
-  height: auto;
+/* .post-container img {
+  height: 20px;
   max-width: 60%;
+} */
+
+.post-container .image:hover {
+  border: 2px solid #2B9DFF;
+}
+
+figcaption {
+  text-align: center;
 }
 
 </style>

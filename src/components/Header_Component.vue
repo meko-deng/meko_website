@@ -64,9 +64,9 @@ export default Vue.extend({
     methods:{
         addClass(){
             //if the active classes haven't been added already
-            if (document.querySelector('.navActive') == null) {
+            if (document.querySelector('.navActive') == null && document.querySelector('.header_top') == null) {
                 this.add_newClasses()
-                this.emit_finished()
+                this.emit_finished(true)
             } else {
                 console.log('classes already exist!')
                 this.$emit('reloadBackToTop')
@@ -86,6 +86,23 @@ export default Vue.extend({
                 }
             }
             console.log(this.logoTrue)
+        },
+        apply_topClasses() {
+            let header = document.getElementsByClassName('header')[0]
+            let image = document.getElementsByClassName('img')[0]
+            let h1 = document.getElementsByClassName('h1_name')[0]
+            let h2 = document.getElementsByClassName('h2_name')[0]
+            let nav = document.getElementsByClassName('nav')[0]
+            let logos = document.getElementsByClassName('logo_links')[0]
+
+            header.classList.add('header_top')
+            image.classList.add('imgStatic_top')
+            h1.classList.add('h1_name_top')
+            h2.classList.add('h2_name_top')
+            logos.classList.add('logo_links_top')
+            nav.classList.add('nav-side_top')
+
+            this.emit_finished(false)
         },
         add_newClasses() {
             let header = document.getElementsByClassName('header')[0]
@@ -109,11 +126,16 @@ export default Vue.extend({
 
             image.classList.remove('imgStatic')
         },
-        emit_finished() {
-            setTimeout (() => {
+        emit_finished(delay:boolean) {
+            if (delay) {
+                setTimeout (() => {
+                    this.$emit('finishedLoading')
+                    console.log('finished_loading')
+                }, 2000)
+            } else {
+                console.log('here')
                 this.$emit('finishedLoading')
-                console.log('finished_loading')
-            }, 2000)
+            }
         },
         adjust_clientWidth() {
             let header = document.getElementsByClassName('header')[0]
@@ -163,6 +185,21 @@ export default Vue.extend({
     },
     created: function() {
         window.addEventListener('resize',this.adjust_clientWidth)
+    },
+    mounted: function() {
+        //put this into store eventually
+        if (window.location.hash != "#/") {
+            if (window.location.hash == "#/Projects") {
+                this.setLogoTrue('project')
+            } else if (window.location.hash = "#/Blog") {
+                this.setLogoTrue('blog')
+            } else if (window.location.hash == "#/Aboutme") {
+                this.setLogoTrue('aboutme')
+            } else if (window.location.hash == "#/Resume") {
+                this.setLogoTrue('resume')
+            }
+            this.apply_topClasses()
+        }
     }
 })
 </script>
@@ -348,6 +385,42 @@ a:hover {
 
 .imgActive_small {
     animation: img_animation_small 2.2s forwards 0s ease;
+}
+
+/* ------ static header activated ------ */
+.header_top {
+    height: 240px;
+    overflow: visible
+}
+
+.imgStatic_top {
+    top: 57px;
+    transform:scale(1.5);    
+}
+
+.h1_name_top {
+    top: 175px;
+    left: 0vw;
+    transform: scale(0.7);
+}
+
+.h2_name_top {
+    opacity: 0;
+}
+
+.logo_links_top {
+    top: 185px;
+    left: 0vw;
+    transform: scale(0.3);    
+}
+
+.nav-side_top {
+    top: 5%;
+    left: calc(100vw - 100%);
+    opacity: 1;
+    width: 100%; 
+    transform: translateY(0vh) scale(0.8);
+    text-align: right;    
 }
 
 /* ------ KEYFRAMES ------ */
