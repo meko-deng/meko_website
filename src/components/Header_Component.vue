@@ -17,8 +17,11 @@
         <div class="h2_name"><h2>developper in progress</h2></div>
         <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
+            <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
+            <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
+            <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
         </div>
     </header>
@@ -42,7 +45,7 @@ import resumeLogo from '../assets/pages/resume.svg'
 export default Vue.extend({
     data() {
         return{
-            //could use VueX
+            //could use VueX (will the states be shared accross different tabs?)
             logoTrue: <Object> {
                 'main': true,
                 'project': false,
@@ -50,7 +53,14 @@ export default Vue.extend({
                 'aboutme': false,
                 'resume': false
             },
-            main: <boolean>true
+            main: <boolean>true,
+            header: <any>"",
+            image: <any>"",
+            h1: <any>"",
+            h2: <any>"",
+            nav: <any>"",
+            logos: <any>"",
+            break: <any>"",
         }
     },
     components: {
@@ -67,13 +77,20 @@ export default Vue.extend({
             if (document.querySelector('.navActive') == null && document.querySelector('.header_top') == null) {
                 this.add_newClasses()
                 this.emit_finished(true)
+                setTimeout(() => {
+                    this.remove_separators()
+                }, 800) 
             } else {
                 console.log('classes already exist!')
                 this.$emit('reloadBackToTop')
+            }        
+        },
+        remove_separators() {
+            let breaker = document.getElementsByClassName('separator')
+
+            while (breaker[0]) {
+                this.nav.removeChild(breaker[0])
             }
-            // this.add_newClasses()
-            // this.emit_finished()  
-            // this.$emit('reloadBackToTop')          
         },
         setLogoTrue(target) {
             for (var key in this.logoTrue) {
@@ -88,43 +105,44 @@ export default Vue.extend({
             console.log(this.logoTrue)
         },
         apply_topClasses() {
-            let header = document.getElementsByClassName('header')[0]
-            let image = document.getElementsByClassName('img')[0]
-            let h1 = document.getElementsByClassName('h1_name')[0]
-            let h2 = document.getElementsByClassName('h2_name')[0]
-            let nav = document.getElementsByClassName('nav')[0]
-            let logos = document.getElementsByClassName('logo_links')[0]
+            // let header = document.getElementsByClassName('header')[0]
+            // let image = document.getElementsByClassName('img')[0]
+            // let h1 = document.getElementsByClassName('h1_name')[0]
+            // let h2 = document.getElementsByClassName('h2_name')[0]
+            // let nav = document.getElementsByClassName('nav')[0]
+            // let logos = document.getElementsByClassName('logo_links')[0]
 
-            header.classList.add('header_top')
-            image.classList.add('imgStatic_top')
-            h1.classList.add('h1_name_top')
-            h2.classList.add('h2_name_top')
-            logos.classList.add('logo_links_top')
-            nav.classList.add('nav-side_top')
+            console.log('applying top classes')
+            this.header.classList.add('header_top')
+            this.image.classList.add('imgStatic_top')
+            this.h1.classList.add('h1_name_top')
+            this.h2.classList.add('h2_name_top')
+            this.logos.classList.add('logo_links_top')
+            this.nav.classList.add('nav-side_top')
 
             this.emit_finished(false)
         },
         add_newClasses() {
-            let header = document.getElementsByClassName('header')[0]
-            let image = document.getElementsByClassName('img')[0]
-            let h1 = document.getElementsByClassName('h1_name')[0]
-            let h2 = document.getElementsByClassName('h2_name')[0]
-            let nav = document.getElementsByClassName('nav')[0]
-            let logos = document.getElementsByClassName('logo_links')[0]
+            // let header = document.getElementsByClassName('header')[0]
+            // let image = document.getElementsByClassName('img')[0]
+            // let h1 = document.getElementsByClassName('h1_name')[0]
+            // let h2 = document.getElementsByClassName('h2_name')[0]
+            // let nav = document.getElementsByClassName('nav')[0]
+            // let logos = document.getElementsByClassName('logo_links')[0]
 
             if (window.innerWidth < 1060) {
-                nav.classList.add('navActive_small')
-                image.classList.add('imgActive_small')
+                this.nav.classList.add('navActive_small')
+                this.image.classList.add('imgActive_small')
             } else {
-                nav.classList.add('navActive')
-                image.classList.add('imgActive')
+                this.nav.classList.add('navActive')
+                this.image.classList.add('imgActive')
             }
-            logos.classList.add('logo_linksActive')
-            header.classList.add('headerActive')
-            h1.classList.add('h1Active')
-            h2.classList.add('h2Active')
+            this.logos.classList.add('logo_linksActive')
+            this.header.classList.add('headerActive')
+            this.h1.classList.add('h1Active')
+            this.h2.classList.add('h2Active')
 
-            image.classList.remove('imgStatic')
+            this.image.classList.remove('imgStatic')
         },
         emit_finished(delay:boolean) {
             if (delay) {
@@ -138,47 +156,47 @@ export default Vue.extend({
             }
         },
         adjust_clientWidth() {
-            let header = document.getElementsByClassName('header')[0]
-            let image = document.getElementsByClassName('img')[0]
-            let nav = document.getElementsByClassName('nav')[0]
+            // let header = document.getElementsByClassName('header')[0]
+            // let image = document.getElementsByClassName('img')[0]
+            // let nav = document.getElementsByClassName('nav')[0]
             
             //do this for big and small, and for smashing the screen (remove elements until minimum)
             if (window.innerWidth < 1060) {
                 let bigActive = document.getElementsByClassName('big-nav')
                 let navActive = document.getElementsByClassName('navActive')
                 if (bigActive.length > 0) {
-                    nav.classList.add('small-nav')
-                    nav.classList.remove('big-nav')
+                    this.nav.classList.add('small-nav')
+                    this.nav.classList.remove('big-nav')
                     
-                    image.classList.add('small-img')
-                    image.classList.remove('big-img')
+                    this.image.classList.add('small-img')
+                    this.image.classList.remove('big-img')
 
                 } else if (navActive.length > 0) {
-                    nav.classList.add('small-nav')
-                    nav.classList.remove('nav-side')
-                    nav.classList.remove('navActive')
+                    this.nav.classList.add('small-nav')
+                    this.nav.classList.remove('nav-side')
+                    this.nav.classList.remove('navActive')
                     
-                    image.classList.add('small-img')
-                    image.classList.remove('imgActive')
+                    this.image.classList.add('small-img')
+                    this.image.classList.remove('imgActive')
                 }
             } else {
                 console.log('in else')
                 let smallActive = document.getElementsByClassName('small-nav')
                 let smallnavActive = document.getElementsByClassName('navActive_small')
                 if (smallActive.length > 0) {
-                    nav.classList.add('big-nav')
-                    nav.classList.remove('small-nav')
+                    this.nav.classList.add('big-nav')
+                    this.nav.classList.remove('small-nav')
 
-                    image.classList.add('big-img')
-                    image.classList.remove('small-img')                     
+                    this.image.classList.add('big-img')
+                    this.image.classList.remove('small-img')                     
                                 
                 } else if (smallnavActive.length > 0) {
-                    nav.classList.add('big-nav')
-                    nav.classList.remove('nav-side')
-                    nav.classList.remove('navActive_small')
+                    this.nav.classList.add('big-nav')
+                    this.nav.classList.remove('nav-side')
+                    this.nav.classList.remove('navActive_small')
 
-                    image.classList.add('big-img')
-                    image.classList.remove('imgActive_small')                    
+                    this.image.classList.add('big-img')
+                    this.image.classList.remove('imgActive_small')                    
                 }
             }
         }
@@ -187,11 +205,19 @@ export default Vue.extend({
         window.addEventListener('resize',this.adjust_clientWidth)
     },
     mounted: function() {
+        this.header = document.getElementsByClassName('header')[0]
+        this.image = document.getElementsByClassName('img')[0]
+        this.h1 = document.getElementsByClassName('h1_name')[0]
+        this.h2 = document.getElementsByClassName('h2_name')[0]
+        this.nav = document.getElementsByClassName('nav')[0]
+        this.logos = document.getElementsByClassName('logo_links')[0]  
+
         //put this into store eventually
         if (window.location.hash != "#/") {
+            this.remove_separators()
             if (window.location.hash == "#/Projects") {
                 this.setLogoTrue('project')
-            } else if (window.location.hash = "#/Blog") {
+            } else if (window.location.hash == "#/Blog") {
                 this.setLogoTrue('blog')
             } else if (window.location.hash == "#/Aboutme") {
                 this.setLogoTrue('aboutme')
@@ -230,7 +256,7 @@ img {
 .img {
     position: absolute;
     left: 0;
-    top: 200px;
+    top: 35vh;
     width: 100%;
     text-align: center;
     transform: scale(5.3);
@@ -256,7 +282,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: -15vw;
-    top: 180px;
+    top: 30vh;
     width: 100%;
     /* border: 2px solid rgb(255, 43, 43); */
 }
@@ -264,7 +290,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: -15vw;
-    top: calc(180px + 27px);
+    top: calc(30vh + 27px);
     width: 100%;
     /* border: 2px solid #2B9DFF;    */
 }
@@ -296,16 +322,16 @@ h1 {
 
 .nav-side {
     position: absolute;
-    left: 29.25vw;
-    top: calc(180px + 27px + 30px + 65px);
-    width: 10%; 
+    left: -15vw;
+    top: calc(30vh + 27px + 30px + 65px);
+    width: 100%; 
     text-align: center;   
 }
 
 .logo_links {
     position: absolute;
     left: -15vw;
-    top: calc(180px + 27px + 30px);
+    top: calc(30vh + 27px + 30px);
     width: 100%;
     text-align: center;
     transform: scale(0.4);

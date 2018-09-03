@@ -4,7 +4,8 @@
         <div class="center block">
             <h1>Hi there! I'm Meko</h1>
             <h2>I consider myself a passionate illustrator, avid developer and occasional storyteller</h2>
-            My main focus is on the process of learning and growth.
+            I deeply stand by the belief that growth stems from the process of learning and this belief is what motivates
+            me to do the things that I do.
             <!-- My goal is to inspire others to learn and grow through sharing -->
             <br>
             <br>
@@ -18,8 +19,12 @@
             <h2> Illustrating </h2>
             Art runs through my veins, illustrating helps me express myself and share bits and part of me with all of you.
             <br>
+            <br>
+            <br>
+            <br>
             If there is anything you would like to share, anything interesting you think I could take a look at, please feel
             free to contact me!
+            <br>
             <br>
             All illustrations/ animations on this website was designed by me. I used VueJs, HTML, CSS, ButterCMS and SVG to create
             the website. If you notice any weird behaviors, please let me know!
