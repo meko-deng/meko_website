@@ -17,7 +17,7 @@ export default new Router({
       component: Projects
     },
     {
-      path: '/blog/',
+      path: '/blog',
       name: 'Blog',
       component: Blog
     },

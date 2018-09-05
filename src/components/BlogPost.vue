@@ -18,7 +18,17 @@
     >
       {{ post.meta.next_post.title }}
     </router-link> -->
+
+    <div id="myModal" class="modal">
+
+      <span class="close">&times;</span>
+
+      <img class="modal-content" id="img01">
+
+      <div id="caption"></div>   
+    </div> 
   </div>
+
 </template>
 <script>
 
@@ -41,10 +51,18 @@ export default Vue.extend({
         butter.post.retrieve(this.$route.params.slug)
           .then((res) => {
             this.post = res.data
+            console.log(this.post)
             this.$store.commit('allow_back_to_top')
           }).catch((res) => {
             console.log(res)
           })
+      },
+      displayModal() {
+        console.log('modal_here')
+        var modal = document.getElementById('myModal')
+        var modalImg = document.getElementById("img01");
+        modal.style.display = "block"
+        modalImg.src = this.src
       }
     },
     watch: {
@@ -54,6 +72,7 @@ export default Vue.extend({
     },    
     created() {
       this.getPost()
+      document.getElementsByTagName('img')[0].addEventListener("click",this.displayModal)
     }
   })
 </script>
@@ -70,7 +89,7 @@ export default Vue.extend({
 }
 
 div {
-    font-size: 12px
+    font-size: 15px
 }
 
 h1 {
@@ -81,17 +100,83 @@ h1 {
   font-family: Montserrat;
 }
 
-/* .post-container img {
-  height: 20px;
-  max-width: 60%;
-} */
-
-.post-container .image:hover {
-  border: 2px solid #2B9DFF;
+.montserrat >>> img {
+  display: block;
+  height: auto;
+  width:100%;
+  transition: 0.3s; 
 }
 
-figcaption {
-  text-align: center;
+.montserrat >>> img:hover {
+  cursor: -moz-zoom-in; 
+  cursor: -webkit-zoom-in; 
+  cursor: zoom-in;  
 }
 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
 </style>

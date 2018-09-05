@@ -217,7 +217,7 @@ export default Vue.extend({
             this.remove_separators()
             if (window.location.hash == "#/Projects") {
                 this.setLogoTrue('project')
-            } else if (window.location.hash == "#/Blog") {
+            } else if (window.location.hash.includes("#/Blog") || window.location.hash.includes("#/blog")) {
                 this.setLogoTrue('blog')
             } else if (window.location.hash == "#/Aboutme") {
                 this.setLogoTrue('aboutme')

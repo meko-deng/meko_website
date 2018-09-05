@@ -4,6 +4,7 @@
     
     (Everything in bullet points and make sure to link to each category.. maybe with an
     Ilustration for each category?)
+    
     Education
     Work
     Skills
