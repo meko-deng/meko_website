@@ -79,6 +79,7 @@ export default Vue.extend({
                 this.add_newClasses()
                 this.emit_finished(true)
                 setTimeout(() => {
+                    console.log('removing separators')
                     this.remove_separators()
                 }, 800) 
             } else {
@@ -364,6 +365,14 @@ a {
     padding: 5px;
 }
 
+.navActive_small .nav-link a {
+    font-size: 12px;
+}
+
+.small-nav .nav-link a {
+    font-size: 12px;
+}
+
 .logo_links a:hover {
     opacity: 1;
 }
@@ -530,14 +539,28 @@ a:hover {
 }
 
 @keyframes nav_animation_small{
-    0%{opacity: 1}
+    0%{opacity: 0}
+    80%{opacity: 0}
     100%{
-        top: 2vh;
         opacity: 1;
-        transform: scale(0.8);
+        top: 0;
+        left: 0;
+        width: 100%;
         text-align: center;
     }
 }
+
+/* @media (max-width: 360px) {
+    .navActive_small {
+        left: -5vw;
+        width: 110vw;
+    }
+
+    .small-nav {
+        left: -5vw;
+        width: 110vw;        
+    }
+} */
 
 @media (max-width: 1060px) {
     .header {
@@ -586,6 +609,11 @@ a:hover {
         text-align: center;   
     }
 
+    /* case:
+        intial page: whatever
+        -- click link to get navActive --
+        -- then resizing large and small again --
+    */
     .nav-oneLine {
         display: block;
     }
@@ -594,11 +622,27 @@ a:hover {
         display: none;
     }
 
+    /* case:
+        intial page: mobile (small screen for landing page)
+        -- click link to get navActive --
+    */
     .nav-default.small-nav{
         display: block;
     }
 
     .nav-oneLine.small-nav{
+        display: none
+    }
+
+    /* case:
+        intial page: mobile (small screen for landing page)
+        -- click link to get navActive --
+    */
+    .nav-default.navActive_small {
+        display: block
+    }
+
+    .nav-oneLine.navActive_small {
         display: none
     }
 }

@@ -88,6 +88,12 @@ export default Vue.extend({
     transform: translate(-50%);
 }
 
+@media (max-width:550px) {
+  .center {
+    width: 80%
+  }
+}
+
 div {
     font-size: 15px
 }
