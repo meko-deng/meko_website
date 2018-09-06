@@ -72,11 +72,6 @@ export default Vue.extend({
     components: {
         insta, facebook, github, codepen, mainLogo, mainLogoSmall, test, projectsLogo, blogsLogo, aboutmeLogo, resumeLogo
     },
-    // computed: {
-    //     big(): any {
-    //         return(window.innerWidth > 1000)
-    //     }
-    // },
     methods:{
         addClass(){
             //if the active classes haven't been added already
@@ -87,7 +82,6 @@ export default Vue.extend({
                     this.remove_separators()
                 }, 800) 
             } else {
-                console.log('classes already exist!')
                 this.$emit('reloadBackToTop')
             }        
         },
@@ -211,6 +205,7 @@ export default Vue.extend({
             } else if (window.location.hash == "#/Resume") {
                 this.setLogoTrue('resume')
             }
+            // this.image.classList.remove('imgStatic')
             this.apply_topClasses()
         }
     }
@@ -293,7 +288,7 @@ h1 {
 }
 
 .nav-oneLine {
-    opacity: 0;
+    display: none;
 }
 
 .small-nav {
@@ -592,11 +587,19 @@ a:hover {
     }
 
     .nav-oneLine {
-        opacity: 1;
+        display: block;
     }
 
     .nav-default {
-        opacity: 0;
+        display: none;
+    }
+
+    .nav-default.small-nav{
+        display: block;
+    }
+
+    .nav-oneLine.small-nav{
+        display: none
     }
 }
 

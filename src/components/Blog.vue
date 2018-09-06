@@ -34,7 +34,6 @@ import FooterComponent from './components/Footer_Component.vue'
 
 export const butter = Butter('3de9eb70ae75166369d82f5404fd6f95476cd46d')
 
-
 export default Vue.extend({
     name: 'blog-home',    
     data() {

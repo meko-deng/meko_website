@@ -6,11 +6,9 @@ import '../assets/app.css'
 import './assets/main_logo.css'
 import './assets/pages/page_header_animation.css'
 
-Vue.config.silent = true
-
 new Vue({
   el: '#app',
-  router: router,
+  router,
   store,
   render: h => h(App)
 })
