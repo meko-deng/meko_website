@@ -47,13 +47,13 @@
 
 @keyframes cloud_move_up_down {
     0% {
-        transform: translateY(-0.5vh)
+        transform: translateY(-2px)
     }
     50% {
-        transform: translateY(1.5vh)
+        transform: translateY(10px)
     }
     100% {
-        transform: translateY(-0.5vh)
+        transform: translateY(-2px)
     }
 }
 

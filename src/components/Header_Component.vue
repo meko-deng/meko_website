@@ -15,13 +15,19 @@
             <!-- LINKEDIN -->
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
-        <div class='nav nav-side'>
+        <div class='nav nav-side nav-default'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
             <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
             <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
             <br class="separator">
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
+        </div>
+        <div class='nav nav-side nav-oneLine'>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
+            <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
         </div>
     </header>
@@ -74,7 +80,7 @@ export default Vue.extend({
     methods:{
         addClass(){
             //if the active classes haven't been added already
-            if (document.querySelector('.navActive') == null && document.querySelector('.header_top') == null) {
+            if (document.querySelector('.h2Active') == null && document.querySelector('.header_top') == null) {
                 this.add_newClasses()
                 this.emit_finished(true)
                 setTimeout(() => {
@@ -105,14 +111,6 @@ export default Vue.extend({
             console.log(this.logoTrue)
         },
         apply_topClasses() {
-            // let header = document.getElementsByClassName('header')[0]
-            // let image = document.getElementsByClassName('img')[0]
-            // let h1 = document.getElementsByClassName('h1_name')[0]
-            // let h2 = document.getElementsByClassName('h2_name')[0]
-            // let nav = document.getElementsByClassName('nav')[0]
-            // let logos = document.getElementsByClassName('logo_links')[0]
-
-            console.log('applying top classes')
             this.header.classList.add('header_top')
             this.image.classList.add('imgStatic_top')
             this.h1.classList.add('h1_name_top')
@@ -123,13 +121,6 @@ export default Vue.extend({
             this.emit_finished(false)
         },
         add_newClasses() {
-            // let header = document.getElementsByClassName('header')[0]
-            // let image = document.getElementsByClassName('img')[0]
-            // let h1 = document.getElementsByClassName('h1_name')[0]
-            // let h2 = document.getElementsByClassName('h2_name')[0]
-            // let nav = document.getElementsByClassName('nav')[0]
-            // let logos = document.getElementsByClassName('logo_links')[0]
-
             if (window.innerWidth < 1060) {
                 this.nav.classList.add('navActive_small')
                 this.image.classList.add('imgActive_small')
@@ -156,12 +147,9 @@ export default Vue.extend({
             }
         },
         adjust_clientWidth() {
-            // let header = document.getElementsByClassName('header')[0]
-            // let image = document.getElementsByClassName('img')[0]
-            // let nav = document.getElementsByClassName('nav')[0]
-            
             //do this for big and small, and for smashing the screen (remove elements until minimum)
             if (window.innerWidth < 1060) {
+                // this.remove_separators()
                 let bigActive = document.getElementsByClassName('big-nav')
                 let navActive = document.getElementsByClassName('navActive')
                 if (bigActive.length > 0) {
@@ -180,7 +168,6 @@ export default Vue.extend({
                     this.image.classList.remove('imgActive')
                 }
             } else {
-                console.log('in else')
                 let smallActive = document.getElementsByClassName('small-nav')
                 let smallnavActive = document.getElementsByClassName('navActive_small')
                 if (smallActive.length > 0) {
@@ -243,7 +230,13 @@ export default Vue.extend({
     transition: all .2s ease-in;
     /* overflow: visible */
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
+}
+
+@media (max-height:550px) {
+    .header {
+        overflow-y: auto
+    }
 }
 
 img {
@@ -299,9 +292,13 @@ h1 {
     position: absolute;
 }
 
+.nav-oneLine {
+    opacity: 0;
+}
+
 .small-nav {
     width: 100%;
-    top: 0vh;
+    top: 0;
     transform: scale(0.8);
     text-align: center;
 }
@@ -540,7 +537,7 @@ a:hover {
 @keyframes nav_animation_small{
     0%{opacity: 1}
     100%{
-        top: 0;
+        top: 2vh;
         opacity: 1;
         transform: scale(0.8);
         text-align: center;
@@ -592,14 +589,22 @@ a:hover {
         top: calc(10px + 27px + 13px + 90px + 290px);
         width: 100%; 
         text-align: center;   
-    }       
+    }
+
+    .nav-oneLine {
+        opacity: 1;
+    }
+
+    .nav-default {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 440px) {
     .nav-side {
         position: absolute;
         left: calc(50% - 50px);
-        top: calc(10px + 27px + 13px + 90px + 290px);
+        top: calc(10px + 27px + 13px + 90px + 310px);
         width: 130px;
         text-align: left;
     }
