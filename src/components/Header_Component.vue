@@ -206,7 +206,7 @@ export default Vue.extend({
             } else if (window.location.hash == "#/Resume") {
                 this.setLogoTrue('resume')
             }
-            // this.image.classList.remove('imgStatic')
+
             this.apply_topClasses()
         }
     }
@@ -353,11 +353,6 @@ h2 {
     font-weight: 400;
 }
 
-/* @font-face{
-    font-family: 'Montserrat';
-    src: url('https://fonts.googleapis.com/css?family=Montserrat')    
-} */
-
 a {
     text-decoration: none; 
     font-family: Montserrat, sans-serif;
@@ -366,11 +361,15 @@ a {
 }
 
 .navActive_small .nav-link a {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
 .small-nav .nav-link a {
-    font-size: 12px;
+    font-size: 12px !important;
+}
+
+.nav-side_top .nav-link a {
+    font-size: 12px !important;
 }
 
 .logo_links a:hover {
@@ -421,14 +420,15 @@ a:hover {
 }
 
 .imgStatic_top {
-    top: 57px;
-    transform:scale(1.5);    
+    left: 0 !important ;
+    top: 57px !important;
+    transform:scale(1.5) !important;    
 }
 
 .h1_name_top {
-    top: 175px;
-    left: 0vw;
-    transform: scale(0.7);
+    top: 175px !important;
+    left: 0vw !important;
+    transform: scale(0.7) !important;
 }
 
 .h2_name_top {
@@ -436,17 +436,17 @@ a:hover {
 }
 
 .logo_links_top {
-    top: 185px;
-    left: 0vw;
-    transform: scale(0.3);    
+    top: 185px !important;
+    left: 0vw !important;
+    transform: scale(0.3) !important;    
 }
 
 .nav-side_top {
-    top: 5%;
-    left: calc(100vw - 100%);
-    opacity: 1;
-    width: 100%; 
-    transform: translateY(0vh) scale(0.8);
+    top: 0 !important;
+    left: 0 !important;
+    opacity: 1 ;
+    width: 100% !important; 
+    transform: translateY(0vh) ;
     text-align: right;    
 }
 
@@ -584,6 +584,7 @@ a:hover {
         width: 100%;
         /* border: 2px solid rgb(255, 43, 43); */
     }
+
     .h2_name {
         position: absolute;
         left: 0;
@@ -644,6 +645,18 @@ a:hover {
 
     .nav-oneLine.navActive_small {
         display: none
+    }
+
+    /* case:
+        intial page: anything by /#/ route
+    */    
+    .nav-default.nav-side_top {
+        display: block;
+        text-align: center;
+    }
+
+    .nav-oneLine.nav-side_top {
+        display: none;
     }
 }
 
