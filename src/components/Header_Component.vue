@@ -15,7 +15,7 @@
             <!-- LINKEDIN -->
         </div>
         <div class="h2_name"><h2>developper in progress</h2></div>
-        <div class='nav nav-side nav-default'>
+        <!-- <div class='nav nav-side nav-default'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
             <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
@@ -23,8 +23,8 @@
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
             <br class="separator">
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('resume')" to='/Resume'>RESUME</router-link></a>
-        </div>
-        <div class='nav nav-side nav-oneLine'>
+        </div> -->
+        <div class='nav nav-side'>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link></a>
             <a class='nav-link' href='#'><router-link @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link></a>
@@ -295,15 +295,15 @@ h1 {
 .small-nav {
     width: 100%;
     top: 0;
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
     text-align: center;
 }
 
 .big-nav {
     top: 5%;
-    left: calc(100vw - 100%);
+    left: -2vw;
+    opacity: 1;
     width: 100%; 
-    transform: scale(0.8);
     text-align: right;
 }
 
@@ -313,14 +313,6 @@ h1 {
     text-align: center;    
 } */
 
-.nav-side {
-    position: absolute;
-    left: -15vw;
-    top: calc(30vh + 27px + 30px + 65px);
-    width: 100%; 
-    text-align: center;   
-}
-
 .logo_links {
     position: absolute;
     left: -15vw;
@@ -328,6 +320,14 @@ h1 {
     width: 100%;
     text-align: center;
     transform: scale(0.4);
+}
+
+.nav-side {
+    position: relative;
+    left: calc(50% - 15vw - 60px);
+    top: calc(30vh + 27px + 30px + 65px);
+    width: 120px; 
+    text-align: center;   
 }
 
 .logo_links a {
@@ -360,13 +360,21 @@ a {
     padding: 5px;
 }
 
-.navActive_small .nav-link a {
+/* .navActive_small .nav-link a {
     font-size: 12px !important;
-}
+} */
 
 .small-nav .nav-link a {
     font-size: 12px !important;
 }
+
+.big-nav .nav-link a {
+    font-size: 12px !important;
+}
+
+/* .navActive .nav-link a {
+    font-size: 12px !important;
+} */
 
 .nav-side_top .nav-link a {
     font-size: 12px !important;
@@ -380,9 +388,7 @@ a:hover {
     color: #707070; 
 }
 .headerActive {
-    /* position: relative; */
     animation: move_header_up 2.2s forwards 0s ease;
-    /* height: 20vh; */
 }
 
 .imgActive {
@@ -442,8 +448,8 @@ a:hover {
 }
 
 .nav-side_top {
-    top: 0 !important;
-    left: 0 !important;
+    top: 5% !important;
+    left: -2vw !important;
     opacity: 1 ;
     width: 100% !important; 
     transform: translateY(0vh) ;
@@ -504,12 +510,13 @@ a:hover {
 }
 
 @keyframes nav_animation{
-    0%{opacity: 1;
-        /* position: absolute;
-        left: 29.25vw;
-        top: 53vh;
-        width: 10%; 
-        text-align: center;    */
+    0%{ 
+        opacity: 1;
+        position: relative;
+        left: calc(50% - 15vw - 60px);
+        top: calc(30vh + 27px + 30px + 65px);
+        width: 120px; 
+        text-align: center;
     }
     30%{
         opacity: 0;
@@ -517,10 +524,12 @@ a:hover {
         left: 29.25vw;
         top: 53vh;
         width: 10%; 
-        text-align: center;           
+        text-align: center;
+        font-size: 15px;           
     }
     49% {
-        left: 0%
+        left: 0%;
+        font-size: 12px;
     }
     50% {
         top: 0%;
@@ -530,11 +539,12 @@ a:hover {
     }
     100%{
         top: 5%;
-        left: calc(100vw - 100%);
+        left: -2vw;
         opacity: 1;
         width: 100%; 
-        transform: translateY(0vh) scale(0.8);
+        transform: translateY(0vh);
         text-align: right;
+        font-size: 12px;
         }
 }
 
@@ -610,59 +620,64 @@ a:hover {
         text-align: center;   
     }
 
+    .nav-side .nav-link a {
+        font-size: 12px ;
+    }    
+
     /* case:
         intial page: whatever
         -- click link to get navActive --
         -- then resizing large and small again --
     */
-    .nav-oneLine {
+    /* .nav-oneLine {
         display: block;
     }
 
     .nav-default {
         display: none;
-    }
+    } */
 
     /* case:
         intial page: mobile (small screen for landing page)
         -- click link to get navActive --
     */
-    .nav-default.small-nav{
+
+    /* .nav-default.small-nav{
         display: block;
     }
 
     .nav-oneLine.small-nav{
         display: none
-    }
+    } */
 
     /* case:
         intial page: mobile (small screen for landing page)
         -- click link to get navActive --
     */
-    .nav-default.navActive_small {
+    /* .nav-default.navActive_small {
         display: block
     }
 
     .nav-oneLine.navActive_small {
         display: none
-    }
+    } */
 
     /* case:
         intial page: anything by /#/ route
     */    
-    .nav-default.nav-side_top {
+    /* .nav-default.nav-side_top {
         display: block;
         text-align: center;
     }
 
     .header_top .nav-oneLine {
         display: none;
-    }
+    } */
 }
 
 @media (max-width: 440px) {
-    .nav-link a {
-        font-size: 14px;
-    }
+    /* .nav-link a {
+        font-size: 12px;
+    } */
 }
 </style>
