@@ -661,12 +661,8 @@ a:hover {
 }
 
 @media (max-width: 440px) {
-    .nav-side {
-        position: absolute;
-        left: calc(50% - 50px);
-        top: calc(10px + 27px + 13px + 90px + 310px);
-        width: 130px;
-        text-align: left;
+    .nav-link a {
+        font-size: 14px;
     }
 }
 </style>
