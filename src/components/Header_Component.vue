@@ -118,14 +118,16 @@ export default Vue.extend({
         add_newClasses() {
             if (window.innerWidth < 1060) {
                 this.nav.classList.add('navActive_small')
+                this.logos.classList.add('logo_linksActive_small')
                 this.image.classList.add('imgActive_small')
+                this.h1.classList.add('h1Active_small')
             } else {
                 this.nav.classList.add('navActive')
                 this.image.classList.add('imgActive')
+                this.logos.classList.add('logo_linksActive')
+                this.h1.classList.add('h1Active')
             }
-            this.logos.classList.add('logo_linksActive')
             this.header.classList.add('headerActive')
-            this.h1.classList.add('h1Active')
             this.h2.classList.add('h2Active')
 
             this.image.classList.remove('imgStatic')
@@ -154,6 +156,12 @@ export default Vue.extend({
                     this.image.classList.add('small-img')
                     this.image.classList.remove('big-img')
 
+                    this.logos.classList.add('small-logo_links')
+                    this.logos.classList.remove('big-logo_links') 
+
+                    this.h1.classList.add('small-h1')
+                    this.h1.classList.remove('big-h1') 
+
                 } else if (navActive.length > 0) {
                     this.nav.classList.add('small-nav')
                     this.nav.classList.remove('nav-side')
@@ -161,6 +169,12 @@ export default Vue.extend({
                     
                     this.image.classList.add('small-img')
                     this.image.classList.remove('imgActive')
+
+                    this.logos.classList.add('small-logo_links')
+                    this.logos.classList.remove('logo_linksActive')
+
+                    this.h1.classList.add('small-h1')
+                    this.h1.classList.remove('h1Active')
                 }
             } else {
                 let smallActive = document.getElementsByClassName('small-nav')
@@ -170,7 +184,13 @@ export default Vue.extend({
                     this.nav.classList.remove('small-nav')
 
                     this.image.classList.add('big-img')
-                    this.image.classList.remove('small-img')                     
+                    this.image.classList.remove('small-img') 
+
+                    this.logos.classList.add('big-logo_links')
+                    this.logos.classList.remove('small-logo_links') 
+
+                    this.h1.classList.add('big-h1')
+                    this.h1.classList.remove('small-h1') 
                                 
                 } else if (smallnavActive.length > 0) {
                     this.nav.classList.add('big-nav')
@@ -178,7 +198,13 @@ export default Vue.extend({
                     this.nav.classList.remove('navActive_small')
 
                     this.image.classList.add('big-img')
-                    this.image.classList.remove('imgActive_small')                    
+                    this.image.classList.remove('imgActive_small')
+
+                    this.logos.classList.add('big-logo_links')
+                    this.logos.classList.remove('logo_linksActive_small') 
+
+                    this.h1.classList.add('big-h1')
+                    this.h1.classList.remove('h1Active_small')                                     
                 }
             }
         }
@@ -254,7 +280,7 @@ img {
 
 .small-img {
     position: absolute;
-    top: 55px;
+    top: 40px;
     transform: scale(1.5);
 }
 
@@ -276,6 +302,18 @@ h1 {
     /* border: 2px solid rgb(255, 43, 43); */
 }
 
+.small-h1 {
+    left: 0vw;
+    transform: scale(0.7);    
+    top: 158px;
+}
+
+.big-h1 {
+    left: 0vw;
+    transform: scale(0.7);
+    top: 175px;
+}
+
 .h2_name {
     position: absolute;
     left: -15vw;
@@ -294,7 +332,8 @@ h1 {
 
 .small-nav {
     width: 100%;
-    top: 0;
+    top: 210px;
+    left: 0;
     /* transform: scale(0.8); */
     text-align: center;
 }
@@ -320,6 +359,18 @@ h1 {
     width: 100%;
     text-align: center;
     transform: scale(0.4);
+}
+
+.small-logo_links {
+    top: 185px;
+    left: 0vw;
+    transform: scale(0.3);
+}
+
+.big-logo_links {
+    left: 0vw;
+    top: 185px;
+    transform: scale(0.3);
 }
 
 .nav-side {
@@ -399,6 +450,11 @@ a:hover {
     animation: h1_animation 2.2s forwards 0.4s ease;
 }
 
+.h1Active_small {
+    animation: h1_animation_small 2.2s forwards 0.4s ease;
+}
+
+
 .h2Active {
     animation: h2_animation 1s forwards 0s ease;
 }
@@ -415,6 +471,10 @@ a:hover {
     animation: nav_animation_small 2.2s forwards 0.5s ease;
 }
 
+.logo_linksActive_small {
+    animation: logo_links_animation_small 2.2s forwards 0.4s ease
+}
+
 .imgActive_small {
     animation: img_animation_small 2.2s forwards 0s ease;
 }
@@ -427,12 +487,12 @@ a:hover {
 
 .imgStatic_top {
     left: 0 !important ;
-    top: 57px !important;
+    top: 57px;
     transform:scale(1.5) !important;    
 }
 
 .h1_name_top {
-    top: 175px !important;
+    top: 175px;
     left: 0vw !important;
     transform: scale(0.7) !important;
 }
@@ -442,14 +502,14 @@ a:hover {
 }
 
 .logo_links_top {
-    top: 185px !important;
+    top: 185px ;
     left: 0vw !important;
     transform: scale(0.3) !important;    
 }
 
 .nav-side_top {
-    top: 5% !important;
-    left: -2vw !important;
+    top: 5%;
+    left: -2vw;
     opacity: 1 ;
     width: 100% !important; 
     transform: translateY(0vh) ;
@@ -479,7 +539,7 @@ a:hover {
     0%{opacity: 0}
     40%{opacity: 0}
     100%{
-        top: 57px;
+        top: 40px;
         transform: scale(1.5);
         }
 }
@@ -488,6 +548,15 @@ a:hover {
     from{}
     to{
         top: 175px;
+        left: 0vw;
+        transform: scale(0.7);
+        }
+}
+
+@keyframes h1_animation_small{
+    from{}
+    to{
+        top: 158px;
         left: 0vw;
         transform: scale(0.7);
         }
@@ -504,6 +573,15 @@ a:hover {
     from{}
     to{
         top: 185px;
+        left: 0vw;
+        transform: scale(0.3);
+    }
+}
+
+@keyframes logo_links_animation_small{
+    from{}
+    to{
+        top: 167px;
         left: 0vw;
         transform: scale(0.3);
     }
@@ -553,7 +631,7 @@ a:hover {
     80%{opacity: 0}
     100%{
         opacity: 1;
-        top: 0;
+        top: 210px;
         left: 0;
         width: 100%;
         text-align: center;
@@ -569,6 +647,11 @@ a:hover {
     .small-nav {
         left: -5vw;
         width: 110vw;        
+    }
+} */
+/* @media (min-width: 1060px) {
+    .h1_name{
+        top: 175px;
     }
 } */
 
@@ -587,12 +670,26 @@ a:hover {
         transform: scale(3.5);  
     }
 
+    .imgStatic_top {
+        top: 40px;
+    }
+
     .h1_name {
         position: absolute;
         left: 0;
         top: 10px;
         width: 100%;
         /* border: 2px solid rgb(255, 43, 43); */
+    }
+
+    .small-h1 {
+        left: 0vw;
+        transform: scale(0.7);         
+        top: 158px;
+    }
+
+    .h1_name_top {
+        top: 158px;
     }
 
     .h2_name {
@@ -610,7 +707,17 @@ a:hover {
         width: 100%;
         text-align: center;
         transform: scale(0.4);
-    }  
+    }
+
+    .small-logo_links {
+        transform: scale(0.3);
+        top: 167px;
+    }
+
+    .logo_links_top {
+        transform: scale(0.3);
+        top: 167px;
+    }
 
     .nav-side {
         position: absolute;
@@ -622,6 +729,11 @@ a:hover {
 
     .nav-side .nav-link a {
         font-size: 12px ;
+    }
+
+    .nav-side_top {
+        left: 0;
+        top: 210px;
     }    
 
     /* case:
