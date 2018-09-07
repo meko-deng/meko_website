@@ -655,7 +655,7 @@ a:hover {
         text-align: center;
     }
 
-    .nav-oneLine.nav-side_top {
+    .header_top .nav-oneLine {
         display: none;
     }
 }

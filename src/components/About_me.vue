@@ -106,15 +106,15 @@ h2 {
 
 @media (max-width: 615px) {
     .center {
-        margin-left: 20vw;
-        margin-right: 20vw;
+        margin-left: 7vw;
+        margin-right: 7vw;
     }
 
     .block{
         background: rgba(255, 255, 255, 0.7);
         border-radius: 10px;  
-        margin-left: 15vw;
-        margin-right: 15vw;  
+        margin-left: 2vw;
+        margin-right: 2vw;  
     }   
     .background {
         position: absolute;
