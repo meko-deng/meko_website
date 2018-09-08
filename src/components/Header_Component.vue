@@ -581,11 +581,11 @@ a:hover {
         position: absolute;
         left: 29.25vw;
         top: 53vh;
-        width: 10%; 
         text-align: center;
         font-size: 15px;           
     }
     49% {
+        width: 120px; 
         left: 0%;
         font-size: 15px;
     }
@@ -593,6 +593,7 @@ a:hover {
         top: 0%;
         left: calc(100vw - 100%);
         text-align: right;
+        width: 100%; 
         opacity: 0;
     }
     100%{
