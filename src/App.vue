@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img-modal v-if="displayLightbox"></img-modal>
     <header-component class="header_component_class" 
                       v-on:finishedLoading="set_fadeIn()"
                       v-on:reloadBackToTop="change_clientHeight()"></header-component>
@@ -12,6 +13,7 @@
 import Vue from 'vue'
 import HeaderComponent from './components/Header_Component.vue'
 import FooterComponent from './components/Footer_Component.vue'
+import imgModal from './components/img_Modal.vue'
 
 export default Vue.extend({
   name: 'app',
@@ -39,7 +41,13 @@ export default Vue.extend({
     },
 		back_to_top():boolean{
 			return this.$store.state.main.back_to_top
-		},      
+    },
+    displayLightbox(): boolean {
+      return this.$store.state.lightbox.display_lightbox
+    }         
+  },
+  components: {
+    HeaderComponent, FooterComponent, imgModal
   },
   watch: {
     back_to_top: {
@@ -87,9 +95,6 @@ export default Vue.extend({
   },
   mounted: function() {
     window.addEventListener('resize',this.get_clientHeight)
-  },
-  components: {
-    HeaderComponent, FooterComponent
   }
 })
 </script>

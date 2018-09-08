@@ -1,5 +1,6 @@
 <template>
   <div id="blog-post" class="fade_in center">
+    <!-- <button v-on:click="displayModal()">Click me</button> -->
     <!-- <h1 class="montserrat">{{ post.data.title }}</h1> -->
     <!-- <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4> -->
     <div v-html="post.data.body" class="montserrat"></div>
@@ -21,8 +22,8 @@
   </div>
 
 </template>
-<script>
 
+<script lang='ts'>
 import Vue from 'vue'
 import Butter from 'buttercms'
 
@@ -42,24 +43,26 @@ export default Vue.extend({
         butter.post.retrieve(this.$route.params.slug)
           .then((res) => {
             this.post = res.data
-            this.displayModal()
             this.$store.commit('allow_back_to_top')
+            setTimeout(() => {
+              this.apply_click_to_img()
+            },1)
           }).catch((res) => {
             console.log(res)
           })
       },
-      displayModal() {
-        console.log('modal_here')
-        let figures = document.getElementsByTagName('FIGURE')
-        console.log(figures)
-        // for (let i =0 ; i< figures.length; i++) {
-        //   console.log('here')
-        //   console.log(figures[i].getElementsByTagName('IMG'))
-        // }
-        // var modal = document.getElementById('myModal')
-        // var modalImg = document.getElementById("img01");
-        // modal.style.display = "block"
-        // modalImg.src = this.src
+      displayModal(img_source):any {
+        console.log('calling displayModal')
+        this.$store.commit('show_lightbox')
+        this.$store.commit('set_lightbox_img', {
+          img_src: img_source})
+      },
+      apply_click_to_img() {
+        let images = document.getElementsByClassName('montserrat')[0].getElementsByTagName('IMG')
+        for (let i=0; i<images.length; i++) {
+          images[i].addEventListener("click", () => {
+            this.displayModal(images[i].getAttribute('src'))});
+        }
       }
     },
     watch: {
@@ -113,29 +116,6 @@ h1 {
   cursor: -moz-zoom-in; 
   cursor: -webkit-zoom-in; 
   cursor: zoom-in;  
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* 100% Image Width on Smaller Screens */
