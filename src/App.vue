@@ -83,6 +83,9 @@ export default Vue.extend({
     // console.log(this.clientHeight)
   },
   created: function() {
+    // window.addEventListener('resize',this.get_clientHeight)
+  },
+  mounted: function() {
     window.addEventListener('resize',this.get_clientHeight)
   },
   components: {

@@ -247,10 +247,8 @@ export default Vue.extend({
     position: relative;
     top: 0;
     left: 0;
-    /* border: 2px solid #2B9DFF; */
     border-radius: 6px;
     transition: all .2s ease-in;
-    /* overflow: visible */
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -275,7 +273,6 @@ img {
     width: 100%;
     text-align: center;
     transform: scale(5.3);
-    /* border: 2px solid rgb(255, 43, 43); */
 }
 
 .small-img {
@@ -299,7 +296,6 @@ h1 {
     left: -15vw;
     top: 30vh;
     width: 100%;
-    /* border: 2px solid rgb(255, 43, 43); */
 }
 
 .small-h1 {
@@ -319,7 +315,6 @@ h1 {
     left: -15vw;
     top: calc(30vh + 27px);
     width: 100%;
-    /* border: 2px solid #2B9DFF;    */
 }
 
 .nav {
@@ -334,7 +329,6 @@ h1 {
     width: 100%;
     top: 210px;
     left: 0;
-    /* transform: scale(0.8); */
     text-align: center;
 }
 
@@ -345,12 +339,6 @@ h1 {
     width: 100%; 
     text-align: right;
 }
-
-/* .nav-center {
-    top: calc(20% + 39vh + 150px);  
-    width: 100%;
-    text-align: center;    
-} */
 
 .logo_links {
     position: absolute;
@@ -411,24 +399,16 @@ a {
     padding: 5px;
 }
 
-/* .navActive_small .nav-link a {
-    font-size: 12px !important;
-} */
-
 .small-nav .nav-link a {
     font-size: 12px !important;
 }
 
 .big-nav .nav-link a {
-    font-size: 12px !important;
+    font-size: 15px !important;
 }
 
-/* .navActive .nav-link a {
-    font-size: 12px !important;
-} */
-
 .nav-side_top .nav-link a {
-    font-size: 12px !important;
+    font-size: 15px;
 }
 
 .logo_links a:hover {
@@ -607,7 +587,7 @@ a:hover {
     }
     49% {
         left: 0%;
-        font-size: 12px;
+        font-size: 15px;
     }
     50% {
         top: 0%;
@@ -622,7 +602,7 @@ a:hover {
         width: 100%; 
         transform: translateY(0vh);
         text-align: right;
-        font-size: 12px;
+        font-size: 15px;
         }
 }
 
@@ -637,23 +617,6 @@ a:hover {
         text-align: center;
     }
 }
-
-/* @media (max-width: 360px) {
-    .navActive_small {
-        left: -5vw;
-        width: 110vw;
-    }
-
-    .small-nav {
-        left: -5vw;
-        width: 110vw;        
-    }
-} */
-/* @media (min-width: 1060px) {
-    .h1_name{
-        top: 175px;
-    }
-} */
 
 @media (max-width: 1060px) {
     .header {
@@ -734,57 +697,11 @@ a:hover {
     .nav-side_top {
         left: 0;
         top: 210px;
+    } 
+
+    .nav-side_top .nav-link a {
+        font-size: 12px;
     }    
-
-    /* case:
-        intial page: whatever
-        -- click link to get navActive --
-        -- then resizing large and small again --
-    */
-    /* .nav-oneLine {
-        display: block;
-    }
-
-    .nav-default {
-        display: none;
-    } */
-
-    /* case:
-        intial page: mobile (small screen for landing page)
-        -- click link to get navActive --
-    */
-
-    /* .nav-default.small-nav{
-        display: block;
-    }
-
-    .nav-oneLine.small-nav{
-        display: none
-    } */
-
-    /* case:
-        intial page: mobile (small screen for landing page)
-        -- click link to get navActive --
-    */
-    /* .nav-default.navActive_small {
-        display: block
-    }
-
-    .nav-oneLine.navActive_small {
-        display: none
-    } */
-
-    /* case:
-        intial page: anything by /#/ route
-    */    
-    /* .nav-default.nav-side_top {
-        display: block;
-        text-align: center;
-    }
-
-    .header_top .nav-oneLine {
-        display: none;
-    } */
 }
 
 @media (max-width: 440px) {

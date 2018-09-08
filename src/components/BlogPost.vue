@@ -1,6 +1,6 @@
 <template>
   <div id="blog-post" class="fade_in center">
-    <h1 class="montserrat">{{ post.data.title }}</h1>
+    <!-- <h1 class="montserrat">{{ post.data.title }}</h1> -->
     <!-- <h4 class="montserrat">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4> -->
     <div v-html="post.data.body" class="montserrat"></div>
 
@@ -18,15 +18,6 @@
     >
       {{ post.meta.next_post.title }}
     </router-link> -->
-
-    <div id="myModal" class="modal">
-
-      <span class="close">&times;</span>
-
-      <img class="modal-content" id="img01">
-
-      <div id="caption"></div>   
-    </div> 
   </div>
 
 </template>
@@ -51,7 +42,7 @@ export default Vue.extend({
         butter.post.retrieve(this.$route.params.slug)
           .then((res) => {
             this.post = res.data
-            console.log(this.post)
+            this.displayModal()
             this.$store.commit('allow_back_to_top')
           }).catch((res) => {
             console.log(res)
@@ -59,10 +50,16 @@ export default Vue.extend({
       },
       displayModal() {
         console.log('modal_here')
-        var modal = document.getElementById('myModal')
-        var modalImg = document.getElementById("img01");
-        modal.style.display = "block"
-        modalImg.src = this.src
+        let figures = document.getElementsByTagName('FIGURE')
+        console.log(figures)
+        // for (let i =0 ; i< figures.length; i++) {
+        //   console.log('here')
+        //   console.log(figures[i].getElementsByTagName('IMG'))
+        // }
+        // var modal = document.getElementById('myModal')
+        // var modalImg = document.getElementById("img01");
+        // modal.style.display = "block"
+        // modalImg.src = this.src
       }
     },
     watch: {
@@ -72,7 +69,6 @@ export default Vue.extend({
     },    
     created() {
       this.getPost()
-      document.getElementsByTagName('img')[0].addEventListener("click",this.displayModal)
     }
   })
 </script>
@@ -119,43 +115,6 @@ h1 {
   cursor: zoom-in;  
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-}
-
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-}
-
-.modal-content, #caption { 
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
 @keyframes zoom {
     from {transform:scale(0)} 
     to {transform:scale(1)}
@@ -181,8 +140,18 @@ h1 {
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
+  .modal-content {
+      width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .montserrat >>> h1 {
+    font-size: 18px;
+  }
+
+  .montserrat >>> h2 {
+    font-size: 16px;
+  }
 }
 </style>
