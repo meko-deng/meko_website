@@ -200,7 +200,7 @@ a {
 
     img {
         border-radius: 10px;
-        width: 30vw;
+        width: auto;
         height: 25vw;
     }
 
@@ -227,7 +227,7 @@ a {
 
     img {
         border-radius: 10px;
-        width: 50vw;
+        width: auto;
         height: 40vw;
     }
 

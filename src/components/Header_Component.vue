@@ -291,12 +291,12 @@ export default Vue.extend({
     transition: all .2s ease-in;
 }
 
-img {
+/* img {
     border-radius: 50%; 
     display: block;
     margin: 0 auto;
     height: 30vh;   
-}
+} */
 
 .img {
     position: absolute;
@@ -607,8 +607,8 @@ a:hover {
     30%{
         opacity: 0;
         position: absolute;
-        left: 29.25vw;
-        top: 53vh;
+        left: 20vw;
+        top: calc(30vh + 27px + 30px + 65px);
         text-align: center;
         font-size: 15px;           
     }
@@ -655,14 +655,15 @@ a:hover {
 
 @media (max-width: 1060px) {
     .header {
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: visible;
+        /* overflow-x: hidden;
+        overflow-y: auto; */
     }
 
     .imgStatic {
         position: absolute;
         left: -50px;
-        top: calc(10px + 27px + 13px + 90px);
+        top: calc(20vh + 27px + 13px + 90px);
         width: 100%;
         /* text-align: center; */
         transform: scale(3.5);  
@@ -675,7 +676,7 @@ a:hover {
     .h1_name {
         position: absolute;
         left: 0;
-        top: 10px;
+        top: 20vh;
         width: 100%;
         /* border: 2px solid rgb(255, 43, 43); */
     }
@@ -693,7 +694,7 @@ a:hover {
     .h2_name {
         position: absolute;
         left: 0;
-        top: calc(10px + 27px);
+        top: calc(20vh + 27px);
         width: 100%;
         /* border: 2px solid #2B9DFF;    */
     }  
@@ -701,7 +702,7 @@ a:hover {
     .logo_links {
         position: absolute;
         left: 0;
-        top: calc(10px + 27px + 13px + 90px + 250px);
+        top: calc(20vh + 27px + 13px + 90px + 250px);
         width: 100%;
         text-align: center;
         transform: scale(0.4);
@@ -720,7 +721,7 @@ a:hover {
     .nav-side {
         position: absolute;
         left: 0;
-        top: calc(10px + 27px + 13px + 90px + 290px);
+        top: calc(20vh + 27px + 13px + 90px + 290px);
         width: 100%; 
         text-align: center;   
     }
