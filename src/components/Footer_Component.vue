@@ -1,8 +1,11 @@
 <template>
-    <footer class="footerSection" v-if="back_to_top">
-        <h1 v-on:click="topFunction()">BACK TO TOP</h1>
-        <br>
-        <div class='credits'> Blog Powered by </div> <a href="https://buttercms.com"><img height="20" src="../assets/butter_cms.png"></a>
+    <footer v-if="back_to_top">
+        <div class="footerSection">
+            <h1 v-on:click="topFunction()">BACK TO TOP</h1>
+        </div>
+        <div class='credits'> 
+            <div class="message"><i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by Meko D.</div>
+        </div>
     </footer>
 </template>
 
@@ -53,8 +56,18 @@ h1:hover {
 
 .credits {
     font-family: Montserrat, sans-serif;
+    text-align: right;
     font-size: 50%;
     color: #bbbbbb; 
     margin-bottom: 5px;
+}
+
+.message {
+   font-size: 170%; 
+   color: #5b5b5b; 
+}
+
+.fa-heart {
+    color:#da4d6c
 }
 </style>

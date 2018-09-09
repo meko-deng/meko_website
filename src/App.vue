@@ -108,21 +108,13 @@ div {
 
 .footer_element {
   position: absolute;
-  width: 99%;
-  left: 0;
+  width: 80%;
+  left: 10%;
   bottom: 0;
   height: 100px;
 }
 
 .header_component_class {
-  overflow-x:hidden;
-  overflow-y: auto;
-}
-
-@media (max-width: 1060px) {
-  .header_component_class {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+  overflow: visible !important;
 }
 </style>

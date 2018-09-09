@@ -19,6 +19,12 @@
     >
       {{ post.meta.next_post.title }}
     </router-link> -->
+    <br>
+    <div class="credits">
+      Blog Powered by 
+      <br>
+      <a href="https://buttercms.com"><img height="20" src="../assets/butter_cms.png"></a>
+    </div>
   </div>
 
 </template>
@@ -77,6 +83,11 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
+
+.credits {
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+}
 
 .center {
     margin: 0;
