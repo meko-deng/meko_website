@@ -35,12 +35,12 @@ import Butter from 'buttercms'
 
 export const butter = Butter('3de9eb70ae75166369d82f5404fd6f95476cd46d')
 
-
 export default Vue.extend({
     name: 'blog-post',
     data() {
       return {
-        post: {}
+        post: {},
+        cursorPost: <boolean>false
       }
     },
     methods: {
@@ -83,7 +83,6 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
-
 .credits {
   font-family: Montserrat, sans-serif;
   font-size: 10px;
@@ -119,7 +118,7 @@ h1 {
 .montserrat >>> img {
   display: block;
   height: auto;
-  width:100%;
+  max-width:100%;
   transition: 0.3s; 
 }
 
