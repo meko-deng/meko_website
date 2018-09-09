@@ -92,14 +92,18 @@ export default Vue.extend({
     margin: 0;
     opacity: 1;
     border-radius: 10px;
-    width: 20vw;
+    width: auto;
     height: 15vw;
+    overflow: hidden;
     /* background: black; */
 }
 
 img {
+    position: absolute;
+    lefT: 50%;
+    transform: translateX(-50%);
     border-radius: 10px;
-    width: 20vw;
+    width: auto;
     height: 15vw;
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;    
