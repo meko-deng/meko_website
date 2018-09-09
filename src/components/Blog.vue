@@ -66,8 +66,6 @@ export default Vue.extend({
                 }
             }
             this.$store.commit('allow_back_to_top')
-        //   this.posts = res.data.data
-        //   console.log(this.posts)
         })
       },
       hide_black_background() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="no-overflow">
+    <div class="no-overflow" style="top: 0">
         <img class="background" height="800px" src="../assets/me_drawing.jpg">
         <div class="center block">
             <h1>Hi there! I'm Meko</h1>
@@ -40,14 +40,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
-    
+    created: function() {
+        this.$store.commit('allow_back_to_top')
+    }
 })
 </script>
 
 <style scoped>
 .no-overflow {
-    overflow-x: hidden
+    position: relative;
+    top:0 !important;
+    overflow-x: hidden !important;
 }
 
 .center {
@@ -60,6 +65,7 @@ export default Vue.extend({
     border-radius: 10px;  
     margin-left: 15vw;
     margin-right: 35vw;  
+    z-index: 1 !important;
 }
 
 div {
@@ -84,9 +90,10 @@ h2 {
 .background {
     position: absolute;
     right: 0vw;
+    z-index: -1;
     /* display: block; */
     /* top: 50vh; */
-    z-index: -1;
+    /* z-index: -1; */
     /* opacity: 0.8; */
 }
 
@@ -117,10 +124,8 @@ h2 {
         margin-right: 2vw;  
     }   
     .background {
-        position: absolute;
         right: -150px;
-        z-index: -1;
-    }     
+    } 
 }
 
 </style>
