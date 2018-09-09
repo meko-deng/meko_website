@@ -652,6 +652,7 @@ a:hover {
     }
 }
 
+
 @media (max-width: 1060px) {
     .header {
         overflow-x: hidden;
