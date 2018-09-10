@@ -50,7 +50,6 @@ export default Vue.extend({
 
 <style scoped>
 .no-overflow {
-    position: relative;
     top:0 !important;
     overflow-x: hidden !important;
 }
@@ -112,6 +111,11 @@ h2 {
 }
 
 @media (max-width: 615px) {
+    .no-overflow {
+        position: relative;
+        top:0 !important;
+        overflow-x: hidden !important;
+    }    
     .center {
         margin-left: 7vw;
         margin-right: 7vw;
