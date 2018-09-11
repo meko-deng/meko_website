@@ -5,15 +5,27 @@
 * back to top shouldn't be present if content fits into the window
 * check on different devices/ browsers
 
-```
-WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-This can impact web performance.
-Assets:
-  dbab1fbbcfe57137f258eee3f8a8aab9.jpg (1.31 MiB)
-  app.js (262 KiB)
+* Clicking on something then when you click back , the intro page doesn't show up anymore... this is because the intro page only loads once... UGH try to fix this!
+* icon next to Meko Deng
+* refactor the code : 
 
-WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-Entrypoints:
-  app (262 KiB)
-      app.js
-```
+``` Wow, you certainly are not using the features of VueJS :slight_smile:
+
+Regarding your issue - you have not shared code where you try to override original router-link component from vue-router.
+
+Lot of your code is manual work.
+
+Possible improvements:
+
+your router links can be rewritten use the tag attribute:
+https://router.vuejs.org/api/#applying-active-class-to-outer-element
+
+vue-router has API for managing URL, even navigation guards to execute some code before URL has changed
+
+element classes can be dynamically toggled with simple Vue properties:
+https://jsfiddle.net/jarmenz/pfoc1r88/ 1
+
+references to elements can be found easier using references ($refs) 1
+
+You should seriously think about refactoring your whole code.```
+

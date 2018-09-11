@@ -2,6 +2,7 @@
   <div>
     <img-modal v-if="displayLightbox"></img-modal>
     <header-component class="header_component_class" 
+                      v-on:revertToOriginal="unset_fadeIn()"
                       v-on:finishedLoading="set_fadeIn()"
                       v-on:reloadBackToTop="change_clientHeight()"></header-component>
     <router-view :style="router_height_style" :class="{'noshow': true, 'fadein': play_fadeIn, 'router_element': true}"></router-view>
@@ -59,6 +60,10 @@ export default Vue.extend({
   methods: {
     set_fadeIn() {
       this.play_fadeIn = true
+      this.get_clientHeight()
+    },
+    unset_fadeIn() {
+      this.play_fadeIn = false
       this.get_clientHeight()
     },
     //50 seems like a good time to let component render, then have the back to top set to the bottom..
