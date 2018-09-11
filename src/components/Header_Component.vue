@@ -36,6 +36,7 @@ import resumeLogo from '../assets/pages/resume.svg'
 export default Vue.extend({
     data() {
         return{
+            went_back: <boolean>false,
             //could use VueX (will the states be shared accross different tabs?)
             logoTrue: <Object> {
                 'main': true,
@@ -68,6 +69,7 @@ export default Vue.extend({
             },
             classes_h2: <Object>{
                 'h2_name': true,
+                'h2_name_top': false,
                 'h2Active': false
             },
             classes_logo: <Object>{
@@ -81,6 +83,7 @@ export default Vue.extend({
             classes_nav: <Object>{
                 'nav': true,
                 'nav-side': true,
+                'nav-side_top': false,
                 'navActive': false,
                 'navActive_small': false,
                 'small-nav': false,
@@ -95,9 +98,11 @@ export default Vue.extend({
         $route: function (to, from ) {
             if (to.fullPath == "/") {
                 this.revertToInitialState()
+                this.went_back = true
             } else {
-                if (!this.classes_nav['navActive']){
+                if (this.went_back){
                     this.assignProperFormat()
+                    this.went_back = false
                 }
             }
         }
@@ -134,6 +139,7 @@ export default Vue.extend({
         h2_classes():any {
             return {
                 'h2_name': this.classes_h2['h2_name'],
+                'h2_name_top': this.classes_h2['h2_name_top'],
                 'h2Active': this.classes_h2['h2Active']
             }
         },
