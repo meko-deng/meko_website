@@ -95,6 +95,10 @@ export default Vue.extend({
         $route: function (to, from ) {
             if (to.fullPath == "/") {
                 this.revertToInitialState()
+            } else {
+                if (!this.classes_nav['navActive']){
+                    this.assignProperFormat()
+                }
             }
         }
     },
@@ -207,7 +211,7 @@ export default Vue.extend({
             this.classes_header['header_top'] = true
             this.classes_image['imgStatic_top'] = true
             this.classes_h1['h1_name_top'] = true
-            this.classes_h1['h2_name_top'] = true
+            this.classes_h2['h2_name_top'] = true
             this.classes_logo['logo_links_top'] = true
             this.classes_nav['nav-side_top'] = true
 
@@ -297,16 +301,8 @@ export default Vue.extend({
                     this.classes_h1['h1Active_small'] = false                                                         
                 }
             }
-        }
-    },
-    created: function() {
-        window.addEventListener('resize',this.adjust_clientWidth)
-    },
-    mounted: function() {
-        console.log(`route query: ${this.$route.query}`)
-
-        //put this into store eventually
-        if (window.location.hash != "#/") {
+        },
+        assignProperFormat() {
             if (window.location.hash == "#/Projects") {
                 this.setLogoTrue('project')
             } else if (window.location.hash.includes("#/Blog") || window.location.hash.includes("#/blog")) {
@@ -317,7 +313,18 @@ export default Vue.extend({
                 this.setLogoTrue('resume')
             }
 
-            this.apply_topClasses()
+            this.apply_topClasses()            
+        }
+    },
+    created: function() {
+        window.addEventListener('resize',this.adjust_clientWidth)
+    },
+    mounted: function() {
+        console.log(`route query: ${this.$route.query}`)
+
+        //put this into store eventually
+        if (window.location.hash != "#/") {
+            this.assignProperFormat()
         }
     }
 })

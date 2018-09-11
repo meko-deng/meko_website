@@ -33,7 +33,7 @@
             <br>
             <br>
             <h1>Contact Me!</h1>
-            <strong>E-mail:</strong> mekodeng94@gmail.com
+            <strong>E-mail:</strong> deng.meko@gmail.com
         </div>
     </div>
 </template>
