@@ -50,6 +50,8 @@ export default Vue.extend({
 
 <style scoped>
 .no-overflow {
+    -webkit-transform: translate3d(0,0,0) !important;
+    transform: translate3d(0,0,0) !important;
     top:0 !important;
     overflow-x: hidden !important;
 }
