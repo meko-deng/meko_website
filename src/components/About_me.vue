@@ -3,37 +3,45 @@
         <img class="background" height="800px" src="../assets/me_drawing.jpg">
         <div class="center block">
             <h1>Hi there! I'm Meko</h1>
-            <h2>I consider myself a passionate illustrator, avid developer and occasional storyteller</h2>
-            I deeply stand by the belief that growth stems from the process of learning and this belief is what motivates
-            me to do the things that I do.
-            <!-- My goal is to inspire others to learn and grow through sharing -->
-            <br>
+            <h2>I consider myself a passionate illustrator, an avid developer and an occasional storyteller</h2>
+            I deeply stand by the belief that growth stems from the process of learning and it is this belief that drives me to constantly push myself 
+            out of my comfort zone - because I believe that we learn the most when we're not in our element.
             <br>
             <br>
             <br>
             <h2> Coding </h2>
             My journey to the path of becoming a developer started with web development through a memorable internship
-            experience. Though I am still in the early stages of this journey, everyday, I am driven to learn more and improve on
+            experience. Though I am still in the early stages of this journey, everyday, I strive to broaden my knowledge and improve on
             areas where I'm lacking.
             <br>
+            <br>
+            <br>
             <h2> Illustrating </h2>
-            Art runs through my veins, illustrating helps me express myself and share bits and part of me with all of you.
+            Art runs through my veins, illustrating helps me express myself and share bits and part of me with all of you (the world). I like
+            to add a little touch of my creativity in what I create - it's the cherry on the cake!
             <br>
             <br>
             <br>
+            <h2> Miscellaneous </h2>
+            Besides Coding and Drawing, I enjoy physical exercise such as - running, bouldering, badminton, skateboarding, volleyball etc... 
+            There's nothing like spending a nice day out in the open before sundown. Nightime and dawn are the best times where creativity kicks 
+            in in the coding cave.
             <br>
-            If there is anything you would like to share, anything interesting you think I could take a look at, please feel
-            free to contact me!
             <br>
             <br>
-            All illustrations/ animations on this website was designed by me. I used VueJs, HTML, CSS, ButterCMS and SVG to create
-            the website. If you notice any weird behaviors, please let me know!
+            If there is anything you would like to share, please feel free to contact me!
+            <br>
+            <br>
+            All illustrations/ animations on this website stemmed from my imagination. I used VueJs, HTML, CSS, ButterCMS and SVG. If you notice any weird behaviors, please let me know!
             <br>
             <br>
             <br>
             <br>
             <h1>Contact Me!</h1>
             <strong>E-mail:</strong> deng.meko@gmail.com
+            <br>
+            <br>
+            <a href="src/assets/Meko_Deng_CV.pdf" target="_blank"><i class="fa fa-download" ></i></a> Download my Resume!
         </div>
     </div>
 </template>
@@ -49,6 +57,10 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.fa-download {
+    color:#2a82c1;
+    transform: scale(1.2)
+}
 .no-overflow {
     -webkit-transform: translate3d(0,0,0) !important;
     transform: translate3d(0,0,0) !important;
