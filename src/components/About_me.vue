@@ -41,7 +41,7 @@
             <strong>E-mail:</strong> deng.meko@gmail.com
             <br>
             <br>
-            <a href="src/assets/Meko_Deng_CV.pdf" target="_blank"><i class="fa fa-download" ></i></a> Download my Resume!
+            <a href="https://drive.google.com/uc?export=download&id=1jCEx4AsmrEHN0XmEHcy1AG21NNL4UGuC"><i class="fa fa-download" ></i></a> Download my Resume!
         </div>
     </div>
 </template>
