@@ -105,8 +105,6 @@ export default Vue.extend({
 </script>
 
 <style lang="css">
-html { margin-left: calc(100vw - 100%); }
-
 div {
   overflow: hidden;
 }
