@@ -13,7 +13,7 @@
             <a href="https://github.com/MekoDeng94" target="_blank"><i class="fa fa-github-alt" ></i></a>
             <a href="https://codepen.io/MekoDeng" target="_blank"><i class="fa fa-codepen" ></i></a>
         </div>
-        <div :class="h2_classes"><h2>developper in progress</h2></div>
+        <div :class="h2_classes"><h2>developer in progress</h2></div>
         <div :class='nav_classes'>
             <router-link tag="a" @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link>
             <router-link tag="a" @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link>
