@@ -45,10 +45,10 @@ module.exports = {
           'css-loader'
         ]
       },
-      {
-        test: /\.js$/,
-        use: 'babel-loader'        
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: 'babel-loader'        
+      // },
       {
         test: /\.(png|jpg|gif)$/,
         use: [

@@ -9,16 +9,24 @@
         <div :class="h1_classes"><h1 font>MEKO D.</h1></div>
         <div :class="logo_classes">
             <a href="https://www.linkedin.com/in/meko-deng-a13805128/" target="_blank"><i class="fa fa-linkedin" ></i></a>            
-            <a href="https://www.instagram.com/md_aw/?hl=en" target="_blank"><i class="fa fa-instagram" ></i></a>
-            <a href="https://github.com/MekoDeng94" target="_blank"><i class="fa fa-github-alt" ></i></a>
+            <a href="https://www.instagram.com/jaqcreates/" target="_blank"><i class="fa fa-instagram" ></i></a>
+            <a href="https://github.com/meko-deng" target="_blank"><i class="fa fa-github-alt" ></i></a>
             <a href="https://codepen.io/MekoDeng" target="_blank"><i class="fa fa-codepen" ></i></a>
         </div>
+        <!-- <div class="resume">
+            <div class="scale-down">
+            <a href="https://drive.google.com/uc?export=download&id=1Pb8mbqcoconBaYgqVlpaU6IsrtXBZt3I">
+            <i class="fa fa-download" />
+            </a>                 
+            </div>
+            <h2>Resume</h2>
+        </div> -->
         <div :class="h2_classes"><h2>developer in progress</h2></div>
-        <div :class='nav_classes'>
+        <!-- <div :class='nav_classes'>
             <router-link tag="a" @click.native="addClass(), setLogoTrue('project')" to='/Projects'>PROJECTS</router-link>
             <router-link tag="a" @click.native="addClass(), setLogoTrue('blog')" to='/Blog'>BLOG</router-link>
             <router-link tag="a" @click.native="addClass(), setLogoTrue('aboutme')" to='/Aboutme'>ABOUT ME</router-link>
-        </div>
+        </div> -->
     </header>
 </template>
 
@@ -380,6 +388,10 @@ export default Vue.extend({
     opacity: 1;
 }
 
+.scale-down {
+    transform: scale(0.4)
+}
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .header {
     height: 95vh;
@@ -419,7 +431,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: -15vw;
-    top: 30vh;
+    top: 40vh;
     width: 100%;
 }
 
@@ -438,7 +450,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: -15vw;
-    top: calc(30vh + 27px);
+    top: calc(40vh + 30px);
     width: 100%;
 }
 
@@ -466,10 +478,24 @@ h1 {
 .logo_links {
     position: absolute;
     left: -15vw;
-    top: calc(30vh + 27px + 30px);
+    top: calc(40vh + 27px + 30px);
     width: 100%;
     text-align: center;
     transform: scale(0.4);
+    overflow: visible;
+}
+
+.resume {
+    position: absolute;
+    left: -15vw;
+    top: calc(40vh + 27px + 100px);
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* transform: scale(0.5); */
     overflow: visible;
 }
 
@@ -488,7 +514,7 @@ h1 {
 .nav-side {
     position: relative;
     left: calc(50% - 15vw - 60px);
-    top: calc(30vh + 27px + 30px + 65px);
+    top: calc(40vh + 27px + 30px + 65px);
     width: 120px; 
     text-align: center;   
 }
@@ -693,7 +719,7 @@ a:hover {
         opacity: 1;
         position: relative;
         left: calc(50% - 15vw - 60px);
-        top: calc(30vh + 27px + 30px + 65px);
+        top: calc(40vh + 27px + 30px + 65px);
         width: 120px; 
         text-align: center;
     }
@@ -701,7 +727,7 @@ a:hover {
         opacity: 0;
         position: absolute;
         left: 20vw;
-        top: calc(30vh + 27px + 30px + 65px);
+        top: calc(40vh + 27px + 30px + 65px);
         text-align: center;
         font-size: 15px;           
     }
