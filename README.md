@@ -1,5 +1,5 @@
 # Personal Website
-
+<!-- 
 ## Things to improve on:
 * Header: nav-links don't have them so close to the top (make them lower in general) -- maybe make the blog start lower too (shouldn't be hard)
 * back to top shouldn't be present if content fits into the window
@@ -28,4 +28,4 @@ https://jsfiddle.net/jarmenz/pfoc1r88/ 1
 references to elements can be found easier using references ($refs) 1
 
 You should seriously think about refactoring your whole code.```
-
+ -->
