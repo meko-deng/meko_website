@@ -436,7 +436,7 @@ h1 {
 .h1_name {
     position: absolute;
     left: -15vw;
-    top: 30vh;
+    top: 40vh;
     width: 100%;
 }
 
@@ -455,7 +455,7 @@ h1 {
 .h2_name {
     position: absolute;
     left: -15vw;
-    top: calc(30vh + 30px);
+    top: calc(40vh + 30px);
     width: 100%;
 }
 
@@ -483,7 +483,7 @@ h1 {
 .logo_links {
     position: absolute;
     left: -15vw;
-    top: calc(30vh + 27px + 30px);
+    top: calc(40vh + 27px + 30px);
     width: 100%;
     text-align: center;
     transform: scale(0.4);
@@ -493,7 +493,7 @@ h1 {
 .resume {
     position: absolute;
     left: -15vw;
-    top: calc(30vh + 27px + 100px);
+    top: calc(40vh + 27px + 100px);
     width: 100%;
     display:flex;
     flex-direction: row;
@@ -519,7 +519,7 @@ h1 {
 .nav-side {
     position: relative;
     left: calc(50% - 15vw - 60px);
-    top: calc(30vh + 27px + 30px + 65px);
+    top: calc(40vh + 27px + 30px + 65px);
     width: 120px; 
     text-align: center;   
 }
@@ -724,7 +724,7 @@ a:hover {
         opacity: 1;
         position: relative;
         left: calc(50% - 15vw - 60px);
-        top: calc(30vh + 27px + 30px + 65px);
+        top: calc(40vh + 27px + 30px + 65px);
         width: 120px; 
         text-align: center;
     }
@@ -732,7 +732,7 @@ a:hover {
         opacity: 0;
         position: absolute;
         left: 20vw;
-        top: calc(30vh + 27px + 30px + 65px);
+        top: calc(40vh + 27px + 30px + 65px);
         text-align: center;
         font-size: 15px;           
     }
